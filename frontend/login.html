@@ -72,10 +72,22 @@
         }
 
         .theme-toggle {
-            position: absolute;
-            right: 20px;
-            top: 20px;
-            z-index: 10;
+            position: fixed;
+            right: 24px;
+            bottom: 24px;
+            z-index: 1050;
+        }
+
+        .theme-toggle .btn {
+            border-radius: 50%;
+            width: 48px;
+            height: 48px;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+            font-size: 1.5rem;
         }
 
         .brand-link {
@@ -92,7 +104,11 @@
 </head>
 
 <body class="bg-light">
-
+    <!-- Elimino el botón de modo oscuro de la parte superior -->
+    <div class="theme-toggle">
+        <button id="toggleTheme" class="btn btn-outline-secondary" title="Cambiar tema">
+            <span id="themeIcon" class="fas fa-moon"></span>
+        </button>
     </div>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
