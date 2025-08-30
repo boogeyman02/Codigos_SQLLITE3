@@ -1,0 +1,1613 @@
+[
+  {
+    "nombre": "Abreo Calixto Santiago",
+    "codigo": "6156",
+    "docente": "NATALIA RODRIGUEZ",
+    "encargado": "Anderson Beltran"
+  },
+  {
+    "nombre": "Acevedo Camacho Jose Manuel",
+    "codigo": "4147",
+    "docente": "ESTEFANI ZAMBRANO"
+  },
+  {
+    "nombre": "Acevedo Pasos Mariangel",
+    "codigo": "4133",
+    "docente": "SOFIA SAENZ",
+    "encargado": "Angelica Ropero"
+  },
+  {
+    "nombre": "Aguilar Sierra Maria Paz",
+    "codigo": "5171",
+    "docente": "CAMILA CALCEDO"
+  },
+  {
+    "nombre": "Aguilar Vargas Martin Emilio",
+    "codigo": "7101",
+    "docente": "STEVEN ANTELIZ",
+    "encargado": "Camila Caicedo"
+  },
+  {
+    "nombre": "Alfonso Claro Andrés Eduardo",
+    "codigo": "5137",
+    "docente": "ANA CATALINA RODRIGUEZ"
+  },
+  {
+    "nombre": "Almeida Diaz Valery Mariana",
+    "codigo": "6176",
+    "docente": "DANIELA MENDEZ",
+    "encargado": "Milena Gomez"
+  },
+  {
+    "nombre": "Alvarez Duarte Luciana",
+    "codigo": "6157",
+    "docente": "NATALIA RODRIGUEZ",
+    "encargado": "Anderson Beltran"
+  },
+  {
+    "nombre": "Alvarez Gomez German Andres",
+    "codigo": "5154",
+    "docente": "GUISELL SANTOS"
+  },
+  {
+    "nombre": "Alvarez Gomez Juan Jose",
+    "codigo": "4148",
+    "docente": "ESTEFANI ZAMBRANO"
+  },
+  {
+    "nombre": "Álvarez Zárate Victoria",
+    "codigo": "4119",
+    "docente": "ANGELICA ROPERO"
+  },
+  {
+    "nombre": "Anaya Jerez Valery",
+    "codigo": "5101",
+    "docente": "ANA MARIA PEDRAZA"
+  },
+  {
+    "nombre": "Anaya Martinez Thiago Alejandro",
+    "codigo": "5172",
+    "docente": "CAMILA CALCEDO"
+  },
+  {
+    "nombre": "Angarita Castillo Juan Diego",
+    "codigo": "6119",
+    "docente": "JUAN SEBASTIAN GOMEZ"
+  },
+  {
+    "nombre": "Angarita Vela Camila Alejandra",
+    "codigo": "6158",
+    "docente": "NATALIA RODRIGUEZ",
+    "encargado": "Anderson Beltran"
+  },
+  {
+    "nombre": "Araque Sanjuan Santiago Jose",
+    "codigo": "6101",
+    "docente": "JULIANA REYES"
+  },
+  {
+    "nombre": "Archila Colmenares Jeronimo",
+    "codigo": "6102",
+    "docente": "JULIANA REYES"
+  },
+  {
+    "nombre": "Arenas Parra Arturo Julian",
+    "codigo": "8131",
+    "docente": "SANTIAGO GAUVIS",
+    "encargado": "Guisell Santos"
+  },
+  {
+    "nombre": "Arenas Pimiento Nicolas",
+    "codigo": "4101",
+    "docente": "IBETH ALFONSO"
+  },
+  {
+    "nombre": "Arguello Uribe Luciana",
+    "codigo": "4102",
+    "docente": "IBETH ALFONSO"
+  },
+  {
+    "nombre": "Arias Ayala Maria Jose",
+    "codigo": "5138",
+    "docente": "ANA CATALINA RODRIGUEZ"
+  },
+  {
+    "nombre": "Arias Herrera Stefany Juliana",
+    "codigo": "8108",
+    "docente": "NOHEMIT VERA"
+  },
+  {
+    "nombre": "Arias Miranda Victoria",
+    "codigo": "5102",
+    "docente": "ANA MARIA PEDRAZA"
+  },
+  {
+    "nombre": "Arrieda Sierra Dariem Sofia",
+    "codigo": "8109",
+    "docente": "NOHEMIT VERA"
+  },
+  {
+    "nombre": "Ayala Guerrero Emilio",
+    "codigo": "4103",
+    "docente": "IBETH ALFONSO"
+  },
+  {
+    "nombre": "Ayala Pardo Melanie Ariana",
+    "codigo": "6103",
+    "docente": "JULIANA REYES"
+  },
+  {
+    "nombre": "Badillo Rodríguez Cristian Felipe",
+    "codigo": "4149",
+    "docente": "ESTEFANI ZAMBRANO"
+  },
+  {
+    "nombre": "Barajas Gomez Hohanny Yannick",
+    "codigo": "4163",
+    "docente": "ANDERSON BELTRAN"
+  },
+  {
+    "nombre": "Barbudo Guarín María José",
+    "codigo": "4104",
+    "docente": "IBETH ALFONSO"
+  },
+  {
+    "nombre": "Baron Meija Camila",
+    "codigo": "4134",
+    "docente": "SOFIA SAENZ",
+    "encargado": "Angelica Ropero"
+  },
+  {
+    "nombre": "Barrera Rivera María Juliana",
+    "codigo": "5120",
+    "docente": "DANIEL DUEÑES"
+  },
+  {
+    "nombre": "Barrios Mora Rafiaella",
+    "codigo": "8110",
+    "docente": "NOHEMIT VERA"
+  },
+  {
+    "nombre": "Bautista Gomez Gabriela",
+    "codigo": "6120",
+    "docente": "JUAN SEBASTIAN GOMEZ"
+  },
+  {
+    "nombre": "Bayona Ascanio Luna Fernanda",
+    "codigo": "4150",
+    "docente": "ESTEFANI ZAMBRANO"
+  },
+  {
+    "nombre": "Benitez Obando Maria Victoria",
+    "codigo": "8111",
+    "docente": "NOHEMIT VERA"
+  },
+  {
+    "nombre": "Bernal Sierra Óscar Alejandro",
+    "codigo": "5121",
+    "docente": "DANIEL DUEÑES"
+  },
+  {
+    "nombre": "Blanco Blanco Dominic Adrian",
+    "codigo": "4164",
+    "docente": "ANDERSON BELTRAN"
+  },
+  {
+    "nombre": "Boneth Aguilar Daniela Alejandra",
+    "codigo": "5155",
+    "docente": "GUISELL SANTOS"
+  },
+  {
+    "nombre": "Bonilla Gomez Samuel",
+    "codigo": "7111",
+    "docente": "MAFE RODRIGUEZ"
+  },
+  {
+    "nombre": "Bonilla Jollanis Gabriel Alejandro",
+    "codigo": "6192",
+    "docente": "JULIANA REYES"
+  },
+  {
+    "nombre": "Caballero Carrillo Juan Sebastian",
+    "codigo": "6177",
+    "docente": "DANIELA MENDEZ",
+    "encargado": "Milena Gomez"
+  },
+  {
+    "nombre": "Caballero Gonzalez Luciana",
+    "codigo": "4135",
+    "docente": "SOFIA SAENZ",
+    "encargado": "Angelica Ropero"
+  },
+  {
+    "nombre": "Caballero Montenegro Isabella",
+    "codigo": "4136",
+    "docente": "SOFIA SAENZ",
+    "encargado": "Angelica Ropero"
+  },
+  {
+    "nombre": "Caballero Rodríguez David Mathias",
+    "codigo": "4151",
+    "docente": "ESTEFANI ZAMBRANO"
+  },
+  {
+    "nombre": "Caceres Caceres Juan Sebastian",
+    "codigo": "6104",
+    "docente": "JULIANA REYES"
+  },
+  {
+    "nombre": "Calcedo Ayala Liseth Gabriela",
+    "codigo": "6159",
+    "docente": "NATALIA RODRIGUEZ",
+    "encargado": "Anderson Beltran"
+  },
+  {
+    "nombre": "Calcedo Lara Samuel",
+    "codigo": "6105",
+    "docente": "JULIANA REYES"
+  },
+  {
+    "nombre": "Calderon Diaz Manuel Felipe",
+    "codigo": "8112",
+    "docente": "NOHEMIT VERA"
+  },
+  {
+    "nombre": "Calderon Leal Andres Yesid",
+    "codigo": "5139",
+    "docente": "ANA CATALINA RODRIGUEZ"
+  },
+  {
+    "nombre": "Calderon Mendoza Matias",
+    "codigo": "6160",
+    "docente": "NATALIA RODRIGUEZ",
+    "encargado": "Anderson Beltran"
+  },
+  {
+    "nombre": "Calderon Perez Julieta",
+    "codigo": "8101",
+    "docente": "SANTIAGO GAUVIS",
+    "encargado": "Ana Catalina Rodríguez"
+  },
+  {
+    "nombre": "Calderon Pinzon Tomas Fernando",
+    "codigo": "4152",
+    "docente": "ESTEFANI ZAMBRANO"
+  },
+  {
+    "nombre": "Calvete Padilla Gabriel",
+    "codigo": "6121",
+    "docente": "JUAN SEBASTIAN GOMEZ"
+  },
+  {
+    "nombre": "Camargo Feriz Santiago Emilio",
+    "codigo": "6106",
+    "docente": "JULIANA REYES"
+  },
+  {
+    "nombre": "Capacho Sandoval Thomas Felipe",
+    "codigo": "6139",
+    "docente": "MILENA GOMEZ"
+  },
+  {
+    "nombre": "Cárdenas Castro Jeronimo",
+    "codigo": "8113",
+    "docente": "NOHEMIT VERA"
+  },
+  {
+    "nombre": "Cardenas Tique Esteban",
+    "codigo": "5103",
+    "docente": "ANA MARIA PEDRAZA"
+  },
+  {
+    "nombre": "Carrillo Alvarado Juan Pablo",
+    "codigo": "6178",
+    "docente": "DANIELA MENDEZ",
+    "encargado": "Milena Gomez"
+  },
+  {
+    "nombre": "Casas Rincon Andres David",
+    "codigo": "4165",
+    "docente": "ANDERSON BELTRAN"
+  },
+  {
+    "nombre": "Castellanos Pico Juan Esteban",
+    "codigo": "6122",
+    "docente": "JUAN SEBASTIAN GOMEZ"
+  },
+  {
+    "nombre": "Castiblanco Vera David",
+    "codigo": "8114",
+    "docente": "NOHEMIT VERA"
+  },
+  {
+    "nombre": "Castillo Fonseca Sara Maria",
+    "codigo": "5156",
+    "docente": "GUISELL SANTOS"
+  },
+  {
+    "nombre": "Castro Plazas Matias",
+    "codigo": "7112",
+    "docente": "MAFE RODRIGUEZ"
+  },
+  {
+    "nombre": "Chia Salon Jimmy Snaider",
+    "codigo": "5157",
+    "docente": "GUISELL SANTOS"
+  },
+  { "nombre": "Cobos Aro Thomas", "codigo": "6140", "docente": "MILENA GOMEZ" },
+  {
+    "nombre": "Cobos Herrera Esteban",
+    "codigo": "5104",
+    "docente": "ANA MARIA PEDRAZA"
+  },
+  {
+    "nombre": "Cobos Montes Jeronimo Andres",
+    "codigo": "7102",
+    "docente": "STEVEN ANTELIZ",
+    "encargado": "Camila Caicedo"
+  },
+  {
+    "nombre": "Coha Carvajal Ian Christopher",
+    "codigo": "5105",
+    "docente": "ANA MARIA PEDRAZA"
+  },
+  {
+    "nombre": "Contreras Velandia Sara",
+    "codigo": "4153",
+    "docente": "ESTEFANI ZAMBRANO"
+  },
+  {
+    "nombre": "Cordero Almeida Juan Luis",
+    "codigo": "6141",
+    "docente": "MILENA GOMEZ"
+  },
+  {
+    "nombre": "Corzo Moreno Samantha",
+    "codigo": "6142",
+    "docente": "MILENA GOMEZ"
+  },
+  {
+    "nombre": "Cruz Parra Juan Jose",
+    "codigo": "5106",
+    "docente": "ANA MARIA PEDRAZA"
+  },
+  {
+    "nombre": "Cubides Mateus Maria Paula",
+    "codigo": "7113",
+    "docente": "MAFE RODRIGUEZ"
+  },
+  {
+    "nombre": "Cubillos Miranda Alejandro",
+    "codigo": "5107",
+    "docente": "ANA MARIA PEDRAZA"
+  },
+  {
+    "nombre": "Delgadillo Suarez Christopher Emmanuel",
+    "codigo": "5108",
+    "docente": "ANA MARIA PEDRAZA"
+  },
+  {
+    "nombre": "Delgado Corzo Maria Jose",
+    "codigo": "6107",
+    "docente": "JULIANA REYES"
+  },
+  {
+    "nombre": "Diaz Meneses Oscar Julian",
+    "codigo": "6143",
+    "docente": "MILENA GOMEZ"
+  },
+  {
+    "nombre": "Diaz Morales Jade Isabella",
+    "codigo": "4120",
+    "docente": "ANGELICA ROPERO"
+  },
+  {
+    "nombre": "Diaz Navarro Gabriela Liseth",
+    "codigo": "5122",
+    "docente": "DANIEL DUEÑES"
+  },
+  {
+    "nombre": "Diaz Sarmiento Juan Andres",
+    "codigo": "5123",
+    "docente": "DANIEL DUEÑES"
+  },
+  {
+    "nombre": "Diaz Suarez Salome",
+    "codigo": "5124",
+    "docente": "DANIEL DUEÑES"
+  },
+  {
+    "nombre": "Doncel Ramirez Emmanuel Saul",
+    "codigo": "5125",
+    "docente": "DANIEL DUEÑES"
+  },
+  {
+    "nombre": "Duarte Gomez Stefanny",
+    "codigo": "5140",
+    "docente": "ANA CATALINA RODRIGUEZ"
+  },
+  {
+    "nombre": "Duarte Guate Jeicob Santiago",
+    "codigo": "6108",
+    "docente": "JULIANA REYES"
+  },
+  {
+    "nombre": "Duarte Silva Celeste",
+    "codigo": "6144",
+    "docente": "MILENA GOMEZ"
+  },
+  {
+    "nombre": "Dueñas Torres Samuel",
+    "codigo": "6161",
+    "docente": "NATALIA RODRIGUEZ",
+    "encargado": "Anderson Beltran"
+  },
+  {
+    "nombre": "Dulcey Sepulveda Maria Paula",
+    "codigo": "5109",
+    "docente": "ANA MARIA PEDRAZA"
+  },
+  {
+    "nombre": "Duran Lizcano Salome",
+    "codigo": "6179",
+    "docente": "DANIELA MENDEZ",
+    "encargado": "Milena Gomez"
+  },
+  {
+    "nombre": "Escalante Higuera Anna Lucia",
+    "codigo": "5158",
+    "docente": "GUISELL SANTOS"
+  },
+  {
+    "nombre": "Estupiñan Serrano Julieta",
+    "codigo": "5141",
+    "docente": "ANA CATALINA RODRIGUEZ"
+  },
+  {
+    "nombre": "Falcon Rico Estiven Andres",
+    "codigo": "4121",
+    "docente": "ANGELICA ROPERO"
+  },
+  {
+    "nombre": "Figueredo Ramirez Danna Isabella",
+    "codigo": "5142",
+    "docente": "ANA CATALINA RODRIGUEZ"
+  },
+  {
+    "nombre": "Finali Lugo Lorenzo",
+    "codigo": "5126",
+    "docente": "DANIEL DUEÑES"
+  },
+  {
+    "nombre": "Finali Lugo Silvana",
+    "codigo": "7103",
+    "docente": "STEVEN ANTELIZ",
+    "encargado": "Camila Caicedo"
+  },
+  {
+    "nombre": "Florez Bautista Gabriela",
+    "codigo": "6180",
+    "docente": "DANIELA MENDEZ",
+    "encargado": "Milena Gomez"
+  },
+  {
+    "nombre": "Flórez Fuentes Brandon",
+    "codigo": "4105",
+    "docente": "IBETH ALFONSO"
+  },
+  {
+    "nombre": "Florez Suarez David Santiago",
+    "codigo": "8102",
+    "docente": "SANTIAGO GAUVIS",
+    "encargado": "Ana Catalina Rodríguez"
+  },
+  {
+    "nombre": "Fonseca Bejarano Maximiliano",
+    "codigo": "4106",
+    "docente": "IBETH ALFONSO"
+  },
+  {
+    "nombre": "Fontecha Rincon Eric Santiago",
+    "codigo": "4166",
+    "docente": "ANDERSON BELTRAN"
+  },
+  {
+    "nombre": "Franco Franco Luciana",
+    "codigo": "8130",
+    "docente": "SANTIAGO GAUVIS",
+    "encargado": "Guisell Santos"
+  },
+  {
+    "nombre": "Franco Franco Silvana",
+    "codigo": "6181",
+    "docente": "DANIELA MENDEZ",
+    "encargado": "Milena Gomez"
+  },
+  {
+    "nombre": "Franco Ordofiez Isabella",
+    "codigo": "4137",
+    "docente": "SOFIA SAENZ",
+    "encargado": "Angelica Ropero"
+  },
+  {
+    "nombre": "Gallo Gutierrez Juan Sebastian",
+    "codigo": "7104",
+    "docente": "STEVEN ANTELIZ",
+    "encargado": "Camila Caicedo"
+  },
+  {
+    "nombre": "Gamboa Blanco Maria Alejandra",
+    "codigo": "5143",
+    "docente": "ANA CATALINA RODRIGUEZ"
+  },
+  {
+    "nombre": "Gamez Calderon Maria Jose",
+    "codigo": "5159",
+    "docente": "GUISELL SANTOS"
+  },
+  {
+    "nombre": "García Anaya Samara Valeria",
+    "codigo": "6123",
+    "docente": "JUAN SEBASTIAN GOMEZ"
+  },
+  {
+    "nombre": "García Anaya Sara Valentina",
+    "codigo": "6124",
+    "docente": "JUAN SEBASTIAN GOMEZ"
+  },
+  {
+    "nombre": "García Leon Nicolle Mariana",
+    "codigo": "7114",
+    "docente": "MAFE RODRIGUEZ"
+  },
+  {
+    "nombre": "García Perez Samantha",
+    "codigo": "4167",
+    "docente": "ANDERSON BELTRAN"
+  },
+  {
+    "nombre": "García Román Elizabeth",
+    "codigo": "5127",
+    "docente": "DANIEL DUEÑES"
+  },
+  {
+    "nombre": "García Ruiz Maximiliano",
+    "codigo": "6109",
+    "docente": "JULIANA REYES"
+  },
+  {
+    "nombre": "Girado Bayona Maria Victoria",
+    "codigo": "8115",
+    "docente": "NOHEMIT VERA"
+  },
+  {
+    "nombre": "Godoy Meza Andres Sebastian",
+    "codigo": "7115",
+    "docente": "MAFE RODRIGUEZ"
+  },
+  {
+    "nombre": "Gomez Abaunza Liam Damian",
+    "codigo": "5183",
+    "docente": "ANA MARIA PEDRAZA"
+  },
+  {
+    "nombre": "Gomez Rodríguez Isabella Sofía",
+    "codigo": "4138",
+    "docente": "SOFIA SAENZ",
+    "encargado": "Angelica Ropero"
+  },
+  {
+    "nombre": "Gonzalez Perez Juan David",
+    "codigo": "4168",
+    "docente": "ANDERSON BELTRAN"
+  },
+  {
+    "nombre": "Granados Peñuela Miguel Angel",
+    "codigo": "5173",
+    "docente": "CAMILA CALCEDO"
+  },
+  {
+    "nombre": "Guiza Mena Santiago",
+    "codigo": "4169",
+    "docente": "ANDERSON BELTRAN"
+  },
+  {
+    "nombre": "Gutierrez Bohorquez Ashly Nicol",
+    "codigo": "5160",
+    "docente": "GUISELL SANTOS"
+  },
+  {
+    "nombre": "Gutierrez Mendoza Juan Esteban",
+    "codigo": "6162",
+    "docente": "NATALIA RODRIGUEZ",
+    "encargado": "Anderson Beltran"
+  },
+  {
+    "nombre": "Gutierrez Peña Juan Diego",
+    "codigo": "4154",
+    "docente": "ESTEFANI ZAMBRANO"
+  },
+  {
+    "nombre": "Hernandez Briceño Gabriela",
+    "codigo": "4107",
+    "docente": "IBETH ALFONSO"
+  },
+  {
+    "nombre": "Hernandez Calderon Simon Alejandro",
+    "codigo": "6163",
+    "docente": "NATALIA RODRIGUEZ",
+    "encargado": "Anderson Beltran"
+  },
+  {
+    "nombre": "Hernandez Quintero Jesus Mateo",
+    "codigo": "8116",
+    "docente": "NOHEMIT VERA"
+  },
+  {
+    "nombre": "Hernandez Santos Sara Isabela",
+    "codigo": "8117",
+    "docente": "NOHEMIT VERA"
+  },
+  {
+    "nombre": "Jauregui Leon Samuel Felipe",
+    "codigo": "4170",
+    "docente": "ANDERSON BELTRAN"
+  },
+  {
+    "nombre": "Jerez Guevara Samuel Santiago",
+    "codigo": "4122",
+    "docente": "ANGELICA ROPERO"
+  },
+  {
+    "nombre": "Jimenez Gelvez Sara Sophia",
+    "codigo": "6125",
+    "docente": "JUAN SEBASTIAN GOMEZ"
+  },
+  {
+    "nombre": "Jimenez Niño Valentina",
+    "codigo": "7105",
+    "docente": "STEVEN ANTELIZ",
+    "encargado": "Camila Caicedo"
+  },
+  {
+    "nombre": "Jimenez Picon María Paula",
+    "codigo": "5174",
+    "docente": "CAMILA CALCEDO"
+  },
+  {
+    "nombre": "Joya García Sara Valentina",
+    "codigo": "6145",
+    "docente": "MIJENA GOMEZ"
+  },
+  {
+    "nombre": "Jurado Gamboa María Jose",
+    "codigo": "5144",
+    "docente": "ANA CATALINA RODRIGUEZ"
+  },
+  {
+    "nombre": "Jurado Ruiz Jose Alejandro",
+    "codigo": "6182",
+    "docente": "DANIELA MENDEZ",
+    "encargado": "Milena Gomez"
+  },
+  {
+    "nombre": "Lara Jurado Alejandro",
+    "codigo": "8118",
+    "docente": "NOHEMIT VERA"
+  },
+  {
+    "nombre": "Lara Jurado Valentina",
+    "codigo": "6146",
+    "docente": "MIJENA GOMEZ"
+  },
+  {
+    "nombre": "Leon Mantilla Juan Esteban",
+    "codigo": "6183",
+    "docente": "DANIELA MENDEZ",
+    "encargado": "Milena Gomez"
+  },
+  {
+    "nombre": "Lesmes Campos Sarai",
+    "codigo": "4108",
+    "docente": "IBETH ALFONSO"
+  },
+  {
+    "nombre": "Lizzano Ardila Anthonella",
+    "codigo": "6147",
+    "docente": "MIJENA GOMEZ"
+  },
+  {
+    "nombre": "Lopez Carmona Jose Jeronimo",
+    "codigo": "5175",
+    "docente": "CAMILA CALCEDO"
+  },
+  {
+    "nombre": "Lopez Carrillo Sofía Guadalupe",
+    "codigo": "4109",
+    "docente": "IBETH ALFONSO"
+  },
+  {
+    "nombre": "López Celis Violetta",
+    "codigo": "4110",
+    "docente": "IBETH ALFONSO"
+  },
+  {
+    "nombre": "Lopez Sepulveda Sara Nikol",
+    "codigo": "4171",
+    "docente": "ANDERSON BELTRAN"
+  },
+  {
+    "nombre": "Lopez Serrano Jesus Adrian",
+    "codigo": "5176",
+    "docente": "CAMILA CALCEDO"
+  },
+  {
+    "nombre": "Madrid Ruiz Benjhamin",
+    "codigo": "5110",
+    "docente": "ANA MARIA PEDRAZA"
+  },
+  {
+    "nombre": "Malagón Méndez Sara Sofía",
+    "codigo": "5145",
+    "docente": "ANA CATALINA RODRIGUEZ"
+  },
+  {
+    "nombre": "Mantilla Malaver Gabriel Fernando",
+    "codigo": "7116",
+    "docente": "MAFE RODRIGUEZ"
+  },
+  {
+    "nombre": "Mantilla Malaver Samuel Jose",
+    "codigo": "5177",
+    "docente": "CAMILA CALCEDO"
+  },
+  {
+    "nombre": "Martinez Barrios Mia Victoria",
+    "codigo": "6184",
+    "docente": "DANIELA MENDEZ",
+    "encargado": "Juliana Reyes"
+  },
+  {
+    "nombre": "Martínez Calderon Christopher Mauricio",
+    "codigo": "4123",
+    "docente": "ANGELICA ROPERO"
+  },
+  {
+    "nombre": "Medina Toscano Nahia Salome",
+    "codigo": "6126",
+    "docente": "JUAN SEBASTIAN GOMEZ"
+  },
+  {
+    "nombre": "Mendez Navarro Valeria",
+    "codigo": "4172",
+    "docente": "ANDERSON BELTRAN"
+  },
+  {
+    "nombre": "Mendoza Cardenas Enry Luciana",
+    "codigo": "4155",
+    "docente": "ESTEFANI ZAMBRANO"
+  },
+  {
+    "nombre": "Mesa Chaparro Elen Valeria",
+    "codigo": "4139",
+    "docente": "SOFIA SAENZ",
+    "encargado": "Angelica Ropero"
+  },
+  {
+    "nombre": "Meza Suarez Juan David",
+    "codigo": "5161",
+    "docente": "GUISELL SANTOS"
+  },
+  {
+    "nombre": "Molina Castañeda Isabel Sofía",
+    "codigo": "6110",
+    "docente": "JULIANA REYES"
+  },
+  {
+    "nombre": "Montaño Estupiñan Isabella",
+    "codigo": "5146",
+    "docente": "ANA CATALINA RODRIGUEZ"
+  },
+  {
+    "nombre": "Montoya Gutierrez Aylín Lucia",
+    "codigo": "4111",
+    "docente": "IBETH ALFONSO"
+  },
+  {
+    "nombre": "Mora Maldonado Ana Isabel",
+    "codigo": "6127",
+    "docente": "JUAN SEBASTIAN GOMEZ"
+  },
+  {
+    "nombre": "Mora Muñoz Luciana",
+    "codigo": "7117",
+    "docente": "MAFE RODRIGUEZ"
+  },
+  {
+    "nombre": "Morales Burgos Caleb Santiago",
+    "codigo": "8119",
+    "docente": "NOHEMIT VERA",
+    "encargado": "Lo va a retirar"
+  },
+  {
+    "nombre": "Moreno Lopez Danna Valentina",
+    "codigo": "4112",
+    "docente": "IBETH ALFONSO"
+  },
+  {
+    "nombre": "Moreno Parada Emiliano",
+    "codigo": "4173",
+    "docente": "ANDERSON BELTRAN"
+  },
+  {
+    "nombre": "Moreno Rodríguez Ivanna",
+    "codigo": "5128",
+    "docente": "DANIEL DUEÑES"
+  },
+  {
+    "nombre": "Muñoz Duran Thomas Santiago",
+    "codigo": "5111",
+    "docente": "ANA MARIA PEDRAZA"
+  },
+  {
+    "nombre": "Muñoz Madrigal Thiago",
+    "codigo": "7106",
+    "docente": "STEVEN ANTELIZ",
+    "encargado": "Mafe Rodríguez"
+  },
+  {
+    "nombre": "Muñoz Torres Alanna Jireth",
+    "codigo": "7118",
+    "docente": "MAFE RODRIGUEZ"
+  },
+  {
+    "nombre": "Murcia Vega Luciana",
+    "codigo": "8103",
+    "docente": "SANTIAGO GAUVIS",
+    "encargado": "Ana Catalina Rodríguez"
+  },
+  {
+    "nombre": "Murillo Torres Jhoan Santiago",
+    "codigo": "5178",
+    "docente": "CAMILA CALCEDO"
+  },
+  {
+    "nombre": "Naranjo García Emanuel",
+    "codigo": "5112",
+    "docente": "ANA MARIA PEDRAZA"
+  },
+  {
+    "nombre": "Navas Blanco Maximiliano",
+    "codigo": "5129",
+    "docente": "DANIEL DUEÑES"
+  },
+  {
+    "nombre": "Niño Alvarez Matteo",
+    "codigo": "5179",
+    "docente": "CAMILA CALCEDO"
+  },
+  {
+    "nombre": "Niño Anaya Martin",
+    "codigo": "4156",
+    "docente": "ESTEFANI ZAMBRANO"
+  },
+  {
+    "nombre": "Niño Delgado Joseph Matías",
+    "codigo": "4113",
+    "docente": "IBETH ALFONSO"
+  },
+  {
+    "nombre": "Obando Ortiz Alicia",
+    "codigo": "7107",
+    "docente": "STEVEN ANTELIZ",
+    "encargado": "Mafe Rodriguez"
+  },
+  {
+    "nombre": "Ojeda Diaz Matias",
+    "codigo": "4140",
+    "docente": "SOFIA SAENZ",
+    "encargado": "Estefany Zambrano"
+  },
+  {
+    "nombre": "Olarte Robles María Alejandra",
+    "codigo": "5162",
+    "docente": "GUISELL SANTOS"
+  },
+  {
+    "nombre": "Olaya Galeano Gabriela",
+    "codigo": "6164",
+    "docente": "NATALIA RODRIGUEZ",
+    "encargado": "Anderson Beltran"
+  },
+  {
+    "nombre": "Ordonez Gil Luciana",
+    "codigo": "4174",
+    "docente": "ANDERSON BELTRAN"
+  },
+  {
+    "nombre": "Ordonez Gomez Valery",
+    "codigo": "7108",
+    "docente": "STEVEN ANTELIZ",
+    "encargado": "Mafe Rodriguez"
+  },
+  {
+    "nombre": "Ortega Niño Juan José",
+    "codigo": "4124",
+    "docente": "ANGELLCA ROPERO"
+  },
+  {
+    "nombre": "Ortiz Ortega Geider Mathias",
+    "codigo": "4175",
+    "docente": "ANDERSON BELTRAN"
+  },
+  {
+    "nombre": "Osorio Pardo Helena",
+    "codigo": "4141",
+    "docente": "SOFIA SAENZ",
+    "encargado": "Estefany Zambrano"
+  },
+  {
+    "nombre": "Osorio Socarras Avinell Sofia",
+    "codigo": "6111",
+    "docente": "JULIANA REYES"
+  },
+  {
+    "nombre": "Osorio Valdes Salome",
+    "codigo": "4114",
+    "docente": "IBETH ALFONSO"
+  },
+  {
+    "nombre": "Oviedo Sanguino Valentina",
+    "codigo": "8120",
+    "docente": "NOHEMIT VERA"
+  },
+  {
+    "nombre": "Pachon Gutierrez Saray Gabriela",
+    "codigo": "5163",
+    "docente": "GUISELL SANTOS"
+  },
+  {
+    "nombre": "Palacios Perez Ana Catalina",
+    "codigo": "6165",
+    "docente": "NATALIA RODRIGUEZ",
+    "encargado": "Anderson Beltran"
+  },
+  {
+    "nombre": "Parada Jaimes Tomas Antonio",
+    "codigo": "6128",
+    "docente": "JUAN SEBASTIAN GOMEZ"
+  },
+  {
+    "nombre": "Pardo Arenales Mariana",
+    "codigo": "6148",
+    "docente": "MILENA GOMEZ"
+  },
+  {
+    "nombre": "Paredes Cardenas Lisseth Cathalina",
+    "codigo": "6112",
+    "docente": "JULIANA REYES"
+  },
+  {
+    "nombre": "Patiño Rincon Mariangel",
+    "codigo": "4157",
+    "docente": "ESTEFANI ZAMBRANO"
+  },
+  {
+    "nombre": "Pedraza Rodriguez Saray Julieth",
+    "codigo": "8104",
+    "docente": "SANTIAGO GAUVIS",
+    "encargado": "Ana Catalina Rodriguez"
+  },
+  {
+    "nombre": "Peña Pico Salome",
+    "codigo": "6113",
+    "docente": "JULIANA REYES"
+  },
+  {
+    "nombre": "Perea Valdivieso Maria Paula",
+    "codigo": "4125",
+    "docente": "ANGELLCA ROPERO"
+  },
+  {
+    "nombre": "Perez Delgado Danna Valentina",
+    "codigo": "6129",
+    "docente": "JUAN SEBASTIAN GOMEZ"
+  },
+  {
+    "nombre": "Pico Lopez Josue",
+    "codigo": "6185",
+    "docente": "DANIELA MENDEZ",
+    "encargado": "Juliana Reyes"
+  },
+  {
+    "nombre": "Picon Reyes Maria Gabriela",
+    "codigo": "6130",
+    "docente": "JUAN SEBASTIAN GOMEZ"
+  },
+  {
+    "nombre": "Pinto Tarquino Ariana",
+    "codigo": "4142",
+    "docente": "SOFIA SAENZ",
+    "encargado": "Estefany Zambrano"
+  },
+  {
+    "nombre": "Pinzon Nuñez María Jose",
+    "codigo": "4115",
+    "docente": "IBETH ALFONSO"
+  },
+  {
+    "nombre": "Plata Mantilla Anny Sofia",
+    "codigo": "6149",
+    "docente": "MILENA GOMEZ"
+  },
+  {
+    "nombre": "Plazas Garces Isabella",
+    "codigo": "6166",
+    "docente": "NATALIA RODRIGUEZ",
+    "encargado": "Juan Sebastian Gomez"
+  },
+  {
+    "nombre": "Porras Cortes Helen Sofia",
+    "codigo": "6186",
+    "docente": "DANIELA MENDEZ",
+    "encargado": "Juliana Reyes"
+  },
+  {
+    "nombre": "Portilla Carrillo María Jose",
+    "codigo": "5147",
+    "docente": "ANA CATALINA RODRIGUEZ"
+  },
+  {
+    "nombre": "Portillo Toloz Andrea Fabian",
+    "codigo": "6114",
+    "docente": "JULIANA REYES"
+  },
+  {
+    "nombre": "Prada Hernandez Sara Marcela",
+    "codigo": "8105",
+    "docente": "SANTIAGO GAUVIS",
+    "encargado": "Guisell Santos"
+  },
+  {
+    "nombre": "Quintero Castillo Cristopher Maximo",
+    "codigo": "5113",
+    "docente": "ANA MARIA PEDRAZA"
+  },
+  {
+    "nombre": "Quintero Hernandez Salome",
+    "codigo": "5180",
+    "docente": "CAMILA CALCEDO"
+  },
+  {
+    "nombre": "Quiñones Hernandez Juan Martín",
+    "codigo": "8121",
+    "docente": "NOHEMIT VERA"
+  },
+  {
+    "nombre": "Quiroga Amaya Isabel Sofia",
+    "codigo": "6131",
+    "docente": "JUAN SEBASTIAN GOMEZ"
+  },
+  {
+    "nombre": "Quiroga Ramirez Alexandra",
+    "codigo": "8122",
+    "docente": "NOHEMIT VERA"
+  },
+  {
+    "nombre": "Quiroga Ruiz Mathias",
+    "codigo": "4143",
+    "docente": "SOFIA SAENZ",
+    "encargado": "Estefany Zambrano"
+  },
+  {
+    "nombre": "Quitian Martinez Maria Jose",
+    "codigo": "7119",
+    "docente": "MAFE RODRIGUEZ"
+  },
+  {
+    "nombre": "Ramirez Lizarazo Hellen Daniela",
+    "codigo": "4126",
+    "docente": "ANGELLCA ROPERO"
+  },
+  {
+    "nombre": "Ramirez Moreno Isabel Sofia",
+    "codigo": "6150",
+    "docente": "MILENA GOMEZ"
+  },
+  {
+    "nombre": "Ramos Mogollon Samuel Enrique",
+    "codigo": "5148",
+    "docente": "ANA CATALINA RODRIGUEZ"
+  },
+  {
+    "nombre": "Rangel Perez Maria Jose",
+    "codigo": "4116",
+    "docente": "IBETH ALFONSO"
+  },
+  {
+    "nombre": "Rangel Saavedra Juan Diego",
+    "codigo": "7109",
+    "docente": "STEVEN ANTELIZ",
+    "encargado": "Mafe Rodriguez"
+  },
+  {
+    "nombre": "Reales Villabona Ivan Santhiago",
+    "codigo": "6151",
+    "docente": "MILENA GOMEZ"
+  },
+  {
+    "nombre": "Redondo Maya Emma",
+    "codigo": "7120",
+    "docente": "MAFE RODRIGUEZ"
+  },
+  {
+    "nombre": "Reina Mantilla Emmy Alejandra",
+    "codigo": "4144",
+    "docente": "SOFIA SAENZ",
+    "encargado": "Estefany Zambrano"
+  },
+  {
+    "nombre": "Rey Rosales Isabel Sofia",
+    "codigo": "8123",
+    "docente": "NOHEMIT VERA"
+  },
+  {
+    "nombre": "Ricaurte Posada Juan Sebastian",
+    "codigo": "6187",
+    "docente": "DANIELA MENDEZ",
+    "encargado": "Juliana Reyes"
+  },
+  {
+    "nombre": "Rico Castro Ana Victoria",
+    "codigo": "8106",
+    "docente": "SANTIAGO GAUVIS",
+    "encargado": "Guisell Santos"
+  },
+  {
+    "nombre": "Rico Castro Maximiliano",
+    "codigo": "5114",
+    "docente": "ANA MARIA PEDRAZA"
+  },
+  {
+    "nombre": "Rico Herrera Johan Sebastian",
+    "codigo": "4127",
+    "docente": "ANGELLCA ROPERO"
+  },
+  {
+    "nombre": "Rincon Pinto Helena",
+    "codigo": "5130",
+    "docente": "DANIEL DUEÑES"
+  },
+  {
+    "nombre": "Rincon Vera Sara Sofia",
+    "codigo": "5164",
+    "docente": "GUISELL SANTOS"
+  },
+  {
+    "nombre": "Rodríguez Guzman Luciana",
+    "codigo": "4128",
+    "docente": "ANGELLCA ROPERO"
+  },
+  {
+    "nombre": "Rodríguez Martínez Salome",
+    "codigo": "6167",
+    "docente": "NATALIA RODRIGUEZ",
+    "encargado": "Juan Sebastian Gomez"
+  },
+  {
+    "nombre": "Rodríguez Ortiz Sara Sofia",
+    "codigo": "4129",
+    "docente": "ANGELICA ROPERO"
+  },
+  {
+    "nombre": "Rodríguez Rueda Sara Valentina",
+    "codigo": "6115",
+    "docente": "JULIANA REYES"
+  },
+  {
+    "nombre": "Rodríguez Sandoval Julian Camilo",
+    "codigo": "4158",
+    "docente": "ESTEFANI ZAMBRANO"
+  },
+  {
+    "nombre": "Rodríguez Sandoval Juliana Sofia",
+    "codigo": "8124",
+    "docente": "NOHEMIT VERA"
+  },
+  {
+    "nombre": "Rodríguez Ulloa Maria Juliana",
+    "codigo": "6152",
+    "docente": "MILENA GOMEZ"
+  },
+  {
+    "nombre": "Rodríguez Vasquez Samuel David",
+    "codigo": "5131",
+    "docente": "DANIEL DUÉÑES"
+  },
+  {
+    "nombre": "Rodríguez Vera María José",
+    "codigo": "4130",
+    "docente": "ANGELICA ROPERO"
+  },
+  {
+    "nombre": "Rojas Sarai iYisu",
+    "codigo": "8125",
+    "docente": "NOHEMIT VERA"
+  },
+  {
+    "nombre": "Rojas Arango Sarah Yaeth",
+    "codigo": "6188",
+    "docente": "DANIELA MENDEZ",
+    "encargado": "Juliana Reyes"
+  },
+  {
+    "nombre": "Rojas Morales Nicolas Augusto",
+    "codigo": "6132",
+    "docente": "JUAN SEBASTIAN GOMEZ"
+  },
+  {
+    "nombre": "Rubio Vargas Anny Gabriela",
+    "codigo": "5149",
+    "docente": "ANA CATALINA RODRIGUEZ"
+  },
+  {
+    "nombre": "Rueda Acevedo Isabella",
+    "codigo": "5132",
+    "docente": "DANIEL DUÉÑES"
+  },
+  {
+    "nombre": "Rueda Nova Ana Sofia",
+    "codigo": "5150",
+    "docente": "ANA CATALINA RODRIGUEZ"
+  },
+  {
+    "nombre": "Rueda Puledo Matias",
+    "codigo": "6168",
+    "docente": "NATALIA RODRIGUEZ",
+    "encargado": "Juan Sebastian Gomez"
+  },
+  {
+    "nombre": "Ruiz Bermudez Juan David",
+    "codigo": "5115",
+    "docente": "ANA MARIA PEDRAZA"
+  },
+  {
+    "nombre": "Ruiz Mendez Sara Sophia",
+    "codigo": "6169",
+    "docente": "NATALIA RODRIGUEZ",
+    "encargado": "Juan Sebastian Gomez"
+  },
+  {
+    "nombre": "Ruiz Ramírez Isabel Sofia",
+    "codigo": "5116",
+    "docente": "ANA MARIA PEDRAZA"
+  },
+  {
+    "nombre": "Salazar Florez Harol Yesid",
+    "codigo": "4159",
+    "docente": "ESTEFANI ZAMBRANO"
+  },
+  {
+    "nombre": "Salazar Gomez Andres Matias",
+    "codigo": "5165",
+    "docente": "GUISELL SANTOS"
+  },
+  {
+    "nombre": "Salazar Tapias Sofia",
+    "codigo": "5117",
+    "docente": "ANA MARIA PEDRAZA"
+  },
+  {
+    "nombre": "Salgado Ospina Antonella",
+    "codigo": "5181",
+    "docente": "CAMILA CALCEDO"
+  },
+  {
+    "nombre": "Sanabria Lizcano Paula Alejandra",
+    "codigo": "5118",
+    "docente": "ANA MARIA PEDRAZA"
+  },
+  {
+    "nombre": "Sanabria Sepulveda David Santiago",
+    "codigo": "5166",
+    "docente": "GUISELL SANTOS"
+  },
+  {
+    "nombre": "Sanchez Hernandez Juan Pablo",
+    "codigo": "4176",
+    "docente": "ANDERSON BELTRAN"
+  },
+  {
+    "nombre": "Sanchez Orduz Scarlett",
+    "codigo": "6116",
+    "docente": "JULIANA REYES"
+  },
+  {
+    "nombre": "Sandoval Bernal Juan Angel",
+    "codigo": "4145",
+    "docente": "SOFIA SAENZ",
+    "encargado": "Estefany Zambrano"
+  },
+  {
+    "nombre": "Sandoval Bernal Juan Esteban",
+    "codigo": "6170",
+    "docente": "NATALIA RODRIGUEZ",
+    "encargado": "Juan Sebastian Gomez"
+  },
+  {
+    "nombre": "Sandoval Jacome Malckol Josue",
+    "codigo": "4146",
+    "docente": "SOFIA SAENZ",
+    "encargado": "Estefany Zambrano"
+  },
+  {
+    "nombre": "Sarmiento Ardila Valeria",
+    "codigo": "5151",
+    "docente": "ANA CATALINA RODRIGUEZ"
+  },
+  {
+    "nombre": "Sarmiento Sepulveda Valery Luciana",
+    "codigo": "6117",
+    "docente": "JULIANA REYES"
+  },
+  {
+    "nombre": "Sarmiento Vera Antonia",
+    "codigo": "6133",
+    "docente": "JUAN SEBASTIAN GOMEZ"
+  },
+  {
+    "nombre": "Sarmiento Vera Luciana",
+    "codigo": "6134",
+    "docente": "JUAN SEBASTIAN GOMEZ"
+  },
+  {
+    "nombre": "Serrano Galvis Victoria",
+    "codigo": "6189",
+    "docente": "DANIELA MENDEZ",
+    "encargado": "Juliana Reyes"
+  },
+  {
+    "nombre": "Serrano Rangel Emiliano",
+    "codigo": "4177",
+    "docente": "ANDERSON BELTRAN"
+  },
+  {
+    "nombre": "Silva Parra Santiago Andres",
+    "codigo": "4117",
+    "docente": "IBETH ALFONSO"
+  },
+  {
+    "nombre": "Solano Parra David Alejandro",
+    "codigo": "5119",
+    "docente": "ANA MARIA PEDRAZA"
+  },
+  {
+    "nombre": "Staper Santos María Jose",
+    "codigo": "4118",
+    "docente": "IBETH ALFONSO"
+  },
+  {
+    "nombre": "Suárez Díaz Juan Andrés",
+    "codigo": "5152",
+    "docente": "ANA CATALINA RODRIGUEZ"
+  },
+  {
+    "nombre": "Suárez Prada Santiago",
+    "codigo": "5167",
+    "docente": "GUISELL SANTOS"
+  },
+  {
+    "nombre": "Suárez Rios Nicolás",
+    "codigo": "6118",
+    "docente": "JULIANA REYES"
+  },
+  {
+    "nombre": "Tejada Oviedo Jeronimo",
+    "codigo": "8126",
+    "docente": "NOHEMIT VERA"
+  },
+  {
+    "nombre": "Tolora Araque Anny Sofia",
+    "codigo": "5133",
+    "docente": "DANIEL DUÉÑES"
+  },
+  {
+    "nombre": "Torres Alvarez Juan Martín",
+    "codigo": "5134",
+    "docente": "DANIEL DUÉÑES"
+  },
+  {
+    "nombre": "Torres Hernandez Isabella",
+    "codigo": "6135",
+    "docente": "JUAN SEBASTIAN GOMEZ"
+  },
+  {
+    "nombre": "Torres Lechuga Mía Julieta",
+    "codigo": "4160",
+    "docente": "ESTEFANI ZAMBRANO"
+  },
+  {
+    "nombre": "Torres Ramírez Marco Antonio",
+    "codigo": "5135",
+    "docente": "DANIEL DUÉÑES"
+  },
+  {
+    "nombre": "Toscano Bohorquez Jancell Alejandro",
+    "codigo": "7110",
+    "docente": "STEVEN ANTELIZ",
+    "encargado": "Mafe Rodriguez"
+  },
+  {
+    "nombre": "Uribe Rodríguez William Emanuel",
+    "codigo": "6153",
+    "docente": "MILENA GOMEZ"
+  },
+  {
+    "nombre": "Urrutia Moreno Helen Sofia",
+    "codigo": "4131",
+    "docente": "ANGELICA ROPERO"
+  },
+  {
+    "nombre": "Valcarcel Pico Sara Isabella",
+    "codigo": "5182",
+    "docente": "CAMILA CALCEDO"
+  },
+  {
+    "nombre": "Valderrama Peñaloza Emma Sofia",
+    "codigo": "6190",
+    "docente": "DANIELA MENDEZ",
+    "encargado": "Juliana Reyes"
+  },
+  {
+    "nombre": "Vargas Hernandez Salome",
+    "codigo": "6171",
+    "docente": "NATALIA RODRIGUEZ",
+    "encargado": "Juan Sebastian Gomez"
+  },
+  {
+    "nombre": "Vargas Moreno Juan Jose",
+    "codigo": "5153",
+    "docente": "ANA CATALINA RODRIGUEZ"
+  },
+  {
+    "nombre": "Vargas Rodríguez Nicolas",
+    "codigo": "4161",
+    "docente": "ESTEFANI ZAMBRANO"
+  },
+  {
+    "nombre": "Vasquez Manche Isabella",
+    "codigo": "6154",
+    "docente": "MILENA GOMEZ"
+  },
+  {
+    "nombre": "Vasquez Orejarena Valeria Mariana",
+    "codigo": "6136",
+    "docente": "JUAN SEBASTIAN GOMEZ"
+  },
+  {
+    "nombre": "Vega Guerrero Juan David",
+    "codigo": "8127",
+    "docente": "NOHEMIT VERA"
+  },
+  {
+    "nombre": "Vega Gutierrez Gabriela",
+    "codigo": "4162",
+    "docente": "ESTEFANI ZAMBRANO"
+  },
+  {
+    "nombre": "Vega Lizarazu Sara Lucia",
+    "codigo": "5168",
+    "docente": "GUISELL SANTOS"
+  },
+  {
+    "nombre": "Vega Mendez Maria Jose",
+    "codigo": "6172",
+    "docente": "NATALIA RODRIGUEZ",
+    "encargado": "Juan Sebastian Gomez"
+  },
+  {
+    "nombre": "Velasquez Moreno Ana Maria",
+    "codigo": "5136",
+    "docente": "DANIEL DUEÑES"
+  },
+  {
+    "nombre": "Velasquez Rivera Valery Sofia",
+    "codigo": "6173",
+    "docente": "NATALIA RODRIGUEZ",
+    "encargado": "Juan Sebastian Gomez"
+  },
+  {
+    "nombre": "Vellojin Niño Daniela",
+    "codigo": "7121",
+    "docente": "MAFE RODRIGUEZ"
+  },
+  {
+    "nombre": "Vera Serrano Esteban Andres",
+    "codigo": "4178",
+    "docente": "ANDERSON BELTRAN"
+  },
+  {
+    "nombre": "Vera Vega Gabriel",
+    "codigo": "6174",
+    "docente": "NATALIA RODRIGUEZ",
+    "encargado": "Juan Sebastian Gomez"
+  },
+  {
+    "nombre": "Vesga Ayala Andrea Carolina",
+    "codigo": "6175",
+    "docente": "NATALIA RODRIGUEZ",
+    "encargado": "Juan Sebastian Gomez"
+  },
+  {
+    "nombre": "Viancha Gomez Julio Alejandro",
+    "codigo": "8107",
+    "docente": "SANTIAGO GALVIS",
+    "encargado": "Guisell Santos"
+  },
+  {
+    "nombre": "Villamizar Castillo Carol Luciana",
+    "codigo": "5169",
+    "docente": "GUISELL SANTOS"
+  },
+  {
+    "nombre": "Villamizar Perez Emily Luciana",
+    "codigo": "5170",
+    "docente": "GUISELL SANTOS"
+  },
+  {
+    "nombre": "Villamizar Villabona Antonella",
+    "codigo": "7122",
+    "docente": "MAFE RODRIGUEZ"
+  },
+  {
+    "nombre": "Villarreal Paez Gabriela Lucia",
+    "codigo": "6137",
+    "docente": "JUAN SEBASTIAN GOMEZ"
+  },
+  {
+    "nombre": "Villarreal Quiroga Juan David",
+    "codigo": "8128",
+    "docente": "NOHEMIT VERA"
+  },
+  {
+    "nombre": "Vivas Perez Marian Andrea",
+    "codigo": "6155",
+    "docente": "MILENA GOMEZ"
+  },
+  {
+    "nombre": "Yarce Fiallo Antony Santiago",
+    "codigo": "6138",
+    "docente": "JUAN SEBASTIAN GOMEZ"
+  },
+  {
+    "nombre": "Zabala Rueda Luciana",
+    "codigo": "4132",
+    "docente": "ANGELICA ROPERO"
+  },
+  {
+    "nombre": "Zambrano Granados Luciana",
+    "codigo": "6191",
+    "docente": "DANIELA MENDEZ",
+    "encargado": "Juliana Reyes"
+  },
+  {
+    "nombre": "Zambrano Rabelo Jhoan Santiago",
+    "codigo": "4179",
+    "docente": "ANDERSON BELTRAN"
+  },
+  {
+    "nombre": "Zarate Vera Jeronimo",
+    "codigo": "8129",
+    "docente": "NOHEMIT VERA"
+  },
+  {
+    "nombre": "Alvarez Hernandez Miguel Angel",
+    "codigo": "0099",
+    "docente": "ANGELICA ROPERO"
+  },
+  {
+    "nombre": "Amezquita Montero Sara Sofia",
+    "codigo": "0099",
+    "docente": "ESTEFANI ZAMBRANO"
+  }
+]

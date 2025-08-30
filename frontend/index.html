@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Salida</title>
+    <!-- Bootstrap 4 CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background: #f4f7fa;
+            color: #23272b;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .navbar {
+            border-radius: 0;
+        }
+
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #00796b;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            z-index: 1000;
+            display: none;
+            font-size: 15px;
+        }
+
+        #copyArea {
+            position: absolute;
+            left: -9999px;
+        }
+
+        .footer {
+            background: #23272b;
+            color: #bfc5ca;
+            padding: 30px 0 10px 0;
+            margin-top: 40px;
+        }
+
+        .footer a {
+            color: #bfc5ca;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        .theme-dark {
+            background: #181a1b !important;
+            color: #e0e0e0 !important;
+        }
+
+        .theme-dark .navbar,
+        .theme-dark .card-header,
+        .theme-dark .footer {
+            background: #23272b !important;
+            color: #e0e0e0 !important;
+        }
+
+        .theme-dark .card,
+        .theme-dark .list-group-item,
+        .theme-dark .form-control {
+            background: #23272b !important;
+            color: #e0e0e0 !important;
+            border-color: #343a40 !important;
+        }
+
+        .theme-dark .btn-primary {
+            background: #375a7f;
+            border-color: #375a7f;
+        }
+
+        .theme-dark .btn-danger {
+            background: #a94442;
+            border-color: #a94442;
+        }
+
+        .theme-dark .btn-success {
+            background: #218838;
+            border-color: #218838;
+        }
+
+        .theme-dark .btn-outline-danger {
+            color: #e57373;
+            border-color: #e57373;
+        }
+
+        .theme-dark .btn-outline-danger:hover {
+            background: #e57373;
+            color: #23272b;
+        }
+
+        .theme-dark .form-control::placeholder {
+            color: #bfc5ca;
+        }
+
+        .theme-toggle {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            z-index: 10;
+        }
+
+        .card {
+            border-radius: 0.3rem;
+        }
+
+        .list-group-item {
+            border-radius: 0 !important;
+        }
+
+        .brand-link {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #375a7f !important;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="theme-toggle">
+        <button id="toggleTheme" class="btn btn-outline-secondary btn-sm" title="Cambiar tema">
+            <span id="themeIcon" class="fas fa-moon"></span> Modo oscuro
+        </button>
+    </div>
+    <div class="container py-3">
+        <!-- Navbar Bootstrap -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+            <a class="navbar-brand brand-link" href="index.html">Gestión Estudiantes</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item" id="btnLoginNav">
+                        <a class="nav-link" href="login.html">Admin</a>
+                    </li>
+                    <li class="nav-item d-none" id="btnLogoutNav">
+                        <a class="nav-link text-danger" href="#" onclick="logout()">Salir</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <!-- Título principal -->
+        <h1 class="text-center mb-4" style="font-size: 1.5rem; color: #375a7f;">Buscar Estudiante</h1>
+        <!-- Buscador -->
+        <form class="mb-3">
+            <div class="form-row align-items-center">
+                <div class="col-12 col-md-10 mb-2 mb-md-0">
+                    <input type="text" class="form-control form-control-lg" id="searchBox"
+                        placeholder="Escribe el nombre o código...">
+                </div>
+            </div>
+        </form>
+        <div id="result" class="mb-3"></div>
+        <!-- Controles -->
+        <div class="row mb-3">
+            <div class="col-12 col-md-4 mb-2 mb-md-0">
+                <div class="form-group mb-0">
+                    <label for="listType"><strong>Tipo de lista:</strong></label>
+                    <select id="listType" class="form-control">
+                        <option value="pie">👟 Personas a pie</option>
+                        <option value="carro">🚗 Personas en carro</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-12 col-md-8 d-flex align-items-end justify-content-md-end mt-2 mt-md-0">
+                <button type="button" class="btn btn-primary mr-2" onclick="copiarLista()">📄 Copiar Lista</button>
+                <button type="button" class="btn btn-danger" onclick="limpiarLista()">🗑 Limpiar Lista</button>
+            </div>
+        </div>
+        <!-- Agregar manual -->
+        <div class="input-group mb-3">
+            <input type="text" id="newName" class="form-control" placeholder="Agregar nombre manualmente">
+            <div class="input-group-append">
+                <button class="btn btn-success" type="button" onclick="agregarManual()">➕ Agregar</button>
+            </div>
+        </div>
+        <!-- Lista -->
+        <div class="card shadow-sm mb-4">
+            <div class="card-header bg-secondary text-white text-center">
+                <h2 id="listaTitle" class="mb-0" style="font-size: 1.1rem;">Lista de Personas a pie</h2>
+            </div>
+            <ul id="lista" class="list-group list-group-flush"></ul>
+        </div>
+        <!-- Área oculta para copiar -->
+        <textarea id="copyArea"></textarea>
+        <!-- Notificación -->
+        <div id="notification" class="notification">✅ Lista copiada al portapapeles</div>
+    </div>
+    <!-- Footer -->
+    <footer class="footer mt-auto">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-3 mb-md-0">
+                    <h5 class="text-uppercase">Gestión Estudiantes</h5>
+                    <p class="mb-1">Sistema profesional para la gestión y control de listas de salida de estudiantes.
+                    </p>
+                </div>
+                <div class="col-md-4 mb-3 mb-md-0">
+                    <h6 class="text-uppercase">Enlaces útiles</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="login.html">Admin</a></li>
+                        <li><a href="#" onclick="window.scrollTo(0,0)">Ir arriba</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 text-md-right">
+                    <h6 class="text-uppercase">Contacto</h6>
+                    <p class="mb-1">Desarrollado por <a
+                            href="https://www.instagram.com/yeison02._.ssj?igsh=cTBqc2I4YXpwbXFj" target="_blank">Yeison
+                            Prada</a></p>
+                    <p class="mb-0">&copy; <span id="year"></span> Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Bootstrap 4 JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/4b8b0b6b7b.js" crossorigin="anonymous"></script>
+    <script>
+        // ⚠️ Evitar refrescar la página por error
+        window.onbeforeunload = function () {
+            return "¿Seguro que quieres salir o refrescar la página? Se perderá la lista.";
+        };
+
+        // Modo oscuro
+        const toggleThemeBtn = document.getElementById('toggleTheme');
+        const themeIcon = document.getElementById('themeIcon');
+        function setTheme(dark) {
+            if (dark) {
+                document.body.classList.add('theme-dark');
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+                toggleThemeBtn.innerHTML = '<span id="themeIcon" class="fas fa-sun"></span> Modo claro';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                document.body.classList.remove('theme-dark');
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+                toggleThemeBtn.innerHTML = '<span id="themeIcon" class="fas fa-moon"></span> Modo oscuro';
+                localStorage.setItem('theme', 'light');
+            }
+        }
+        toggleThemeBtn.addEventListener('click', function () {
+            const isDark = document.body.classList.contains('theme-dark');
+            setTheme(!isDark);
+        });
+        // Mantener preferencia
+        if (localStorage.getItem('theme') === 'dark') {
+            setTheme(true);
+        }
+
+        // Datos cargados desde la base
+        let estudiantes = [];
+
+        async function cargarEstudiantes() {
+            try {
+                // 🔥 corregido endpoint
+                const res = await fetch("/api/estudiantes");
+                estudiantes = await res.json();
+                console.log("✅ Estudiantes cargados:", estudiantes);
+            } catch (error) {
+                console.error("❌ Error cargando estudiantes:", error);
+            }
+        }
+
+        cargarEstudiantes();
+
+        let listaSeleccion = [];
+        let currentListType = "pie";
+
+        const searchBox = document.getElementById("searchBox");
+        const resultDiv = document.getElementById("result");
+        const listaUl = document.getElementById("lista");
+        const listTypeSelect = document.getElementById("listType");
+        const listaTitle = document.getElementById("listaTitle");
+        const newNameInput = document.getElementById("newName");
+        const copyArea = document.getElementById("copyArea");
+        const notification = document.getElementById("notification");
+
+        listTypeSelect.addEventListener("change", () => {
+            currentListType = listTypeSelect.value;
+            listaTitle.textContent = currentListType === "pie"
+                ? "👟Lista de Personas a pie"
+                : "🚗Lista de Personas en carro";
+            actualizarLista();
+        });
+
+        searchBox.addEventListener("input", () => {
+            const termino = searchBox.value.trim().toLowerCase();
+            resultDiv.innerHTML = "";
+
+            if (termino.length > 0) {
+                const encontrados = estudiantes.filter(e =>
+                    e.nombre.toLowerCase().includes(termino) ||
+                    e.codigo.includes(termino)
+                );
+
+                if (encontrados.length > 0) {
+                    let html = '<div class="list-group">';
+                    encontrados.forEach(est => {
+                        html += `
+              <label class="list-group-item d-flex align-items-center">
+                <input type="checkbox" class="mr-2" id="est-${est.codigo}" onchange="agregarALista('${est.codigo}')">
+                <span><strong>${est.nombre}</strong> - Código: ${est.codigo} - Docente: ${est.docente}</span>
+              </label>`;
+                    });
+                    html += '</div>';
+                    resultDiv.innerHTML = html;
+                } else {
+                    resultDiv.innerHTML = "<p>No se encontraron estudiantes</p>";
+                }
+            }
+        });
+
+        function agregarALista(codigo) {
+            const estudiante = estudiantes.find(e => e.codigo === codigo);
+            if (estudiante && !listaSeleccion.some(item => item.codigo === codigo && item.tipo === currentListType)) {
+                listaSeleccion.push({ ...estudiante, tipo: currentListType, manual: false });
+                actualizarLista();
+            }
+            searchBox.value = "";
+            resultDiv.innerHTML = "";
+        }
+
+        function agregarManual() {
+            const nombre = newNameInput.value.trim();
+            if (nombre) {
+                listaSeleccion.push({
+                    nombre: nombre,
+                    codigo: "MANUAL",
+                    docente: "",
+                    tipo: currentListType,
+                    manual: true
+                });
+                actualizarLista();
+                newNameInput.value = "";
+            }
+        }
+
+        function actualizarLista() {
+            listaUl.innerHTML = "";
+            const listaFiltrada = listaSeleccion.filter(item => item.tipo === currentListType);
+
+            if (listaFiltrada.length === 0) {
+                listaUl.innerHTML = '<li class="list-group-item text-center text-muted">No hay estudiantes en esta lista</li>';
+                return;
+            }
+
+            listaFiltrada.forEach((est, idx) => {
+                const li = document.createElement("li");
+                li.className = "list-group-item d-flex justify-content-between align-items-center";
+                li.textContent = `${idx + 1}. ${est.nombre} ${est.codigo !== "MANUAL" ? "(Código: " + est.codigo + ")" : ""}`;
+
+                const removeBtn = document.createElement("button");
+                removeBtn.innerHTML = "❌";
+                removeBtn.className = "btn btn-sm btn-outline-danger ml-2";
+                removeBtn.onclick = () => eliminarDeLista(est.codigo, est.manual);
+
+                li.appendChild(removeBtn);
+                listaUl.appendChild(li);
+            });
+        }
+
+        function eliminarDeLista(codigo, esManual) {
+            if (esManual) {
+                listaSeleccion = listaSeleccion.filter(item => !(item.codigo === codigo && item.manual && item.tipo === currentListType));
+            } else {
+                listaSeleccion = listaSeleccion.filter(item => !(item.codigo === codigo && item.tipo === currentListType));
+            }
+            actualizarLista();
+        }
+
+        function copiarLista() {
+            const listaFiltrada = listaSeleccion.filter(item => item.tipo === currentListType);
+            const tipoLista = currentListType === "pie" ? "*PERSONAS A PIE 👟*" : "*PERSONAS EN CARRO 🚗*";
+            let texto = `LISTA DE ${tipoLista}:\n\n`;
+
+            texto += listaFiltrada.map((est, idx) => {
+                return `${idx + 1}. ${est.nombre} ${est.codigo !== "MANUAL" ? "(Código: " + est.codigo + ")" : ""}`;
+            }).join("\n");
+
+            copyArea.value = texto;
+            copyArea.select();
+            document.execCommand("copy");
+            mostrarNotificacion();
+        }
+
+        function mostrarNotificacion() {
+            notification.style.display = "block";
+            setTimeout(() => notification.style.display = "none", 2000);
+        }
+
+        function limpiarLista() {
+            if (confirm("¿Estás seguro de querer limpiar esta lista?")) {
+                listaSeleccion = listaSeleccion.filter(item => item.tipo !== currentListType);
+                actualizarLista();
+            }
+        }
+
+        // Footer año
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>
