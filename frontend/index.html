@@ -104,10 +104,22 @@
         }
 
         .theme-toggle {
-            position: absolute;
-            right: 20px;
-            top: 20px;
-            z-index: 10;
+            position: fixed;
+            right: 24px;
+            bottom: 24px;
+            z-index: 1050;
+        }
+
+        .theme-toggle .btn {
+            border-radius: 50%;
+            width: 48px;
+            height: 48px;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+            font-size: 1.5rem;
         }
 
         .card {
@@ -128,11 +140,6 @@
 </head>
 
 <body>
-    <div class="theme-toggle">
-        <button id="toggleTheme" class="btn btn-outline-secondary btn-sm" title="Cambiar tema">
-            <span id="themeIcon" class="fas fa-moon"></span> Modo oscuro
-        </button>
-    </div>
     <div class="container py-3">
         <!-- Navbar Bootstrap -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
@@ -202,6 +209,11 @@
         <!-- Notificación -->
         <div id="notification" class="notification">✅ Lista copiada al portapapeles</div>
     </div>
+    <div class="theme-toggle">
+        <button id="toggleTheme" class="btn btn-outline-secondary" title="Cambiar tema">
+            <span id="themeIcon" class="fas fa-moon"></span>
+        </button>
+    </div>
     <!-- Footer -->
     <footer class="footer mt-auto">
         <div class="container">
@@ -248,13 +260,13 @@
                 document.body.classList.add('theme-dark');
                 themeIcon.classList.remove('fa-moon');
                 themeIcon.classList.add('fa-sun');
-                toggleThemeBtn.innerHTML = '<span id="themeIcon" class="fas fa-sun"></span> Modo claro';
+                toggleThemeBtn.setAttribute('title', 'Modo claro');
                 localStorage.setItem('theme', 'dark');
             } else {
                 document.body.classList.remove('theme-dark');
                 themeIcon.classList.remove('fa-sun');
                 themeIcon.classList.add('fa-moon');
-                toggleThemeBtn.innerHTML = '<span id="themeIcon" class="fas fa-moon"></span> Modo oscuro';
+                toggleThemeBtn.setAttribute('title', 'Modo oscuro');
                 localStorage.setItem('theme', 'light');
             }
         }
