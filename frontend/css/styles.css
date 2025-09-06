@@ -1,0 +1,178 @@
+body {
+    background: #f4f7fa;
+    color: #23272b;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.navbar {
+    border-radius: 0;
+}
+
+.theme-dark {
+    background: #181a1b !important;
+    color: #e0e0e0 !important;
+}
+
+.theme-dark .navbar,
+.theme-dark .footer,
+.theme-dark .modal-content,
+.theme-dark .table,
+.theme-dark .card-header {
+    background: #23272b !important;
+    color: #e0e0e0 !important;
+}
+
+.theme-dark .card,
+.theme-dark .form-control,
+.theme-dark .list-group-item {
+    background: #23272b !important;
+    color: #e0e0e0 !important;
+    border-color: #343a40 !important;
+}
+
+.theme-dark .btn-primary,
+.theme-dark .btn-dark {
+    background: #375a7f;
+    border-color: #375a7f;
+}
+
+.theme-dark .btn-danger {
+    background: #a94442;
+    border-color: #a94442;
+}
+
+.theme-dark .btn-info {
+    background: #2c82c9;
+    border-color: #2c82c9;
+}
+
+.theme-dark .btn-secondary {
+    background: #444950;
+    border-color: #444950;
+}
+
+.theme-dark .btn-success {
+    background: #218838;
+    border-color: #218838;
+}
+
+.theme-dark .btn-outline-danger {
+    color: #e57373;
+    border-color: #e57373;
+}
+
+.theme-dark .btn-outline-danger:hover {
+    background: #e57373;
+    color: #23272b;
+}
+
+.theme-dark .form-control::placeholder {
+    color: #bfc5ca;
+}
+
+.footer {
+    background: #23272b;
+    color: #bfc5ca;
+    padding: 30px 0 10px 0;
+    margin-top: 40px;
+}
+
+.footer a {
+    color: #bfc5ca;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.theme-toggle {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 1050;
+}
+
+.theme-toggle .btn {
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    font-size: 1.5rem;
+}
+
+.brand-link {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #375a7f !important;
+    letter-spacing: 1px;
+}
+
+.card {
+    border-radius: 0.3rem;
+}
+
+.table {
+    background: #fff;
+}
+
+.theme-dark .table-bordered th,
+.theme-dark .table-bordered td {
+    border-color: #343a40 !important;
+}
+
+.modal-content {
+    border-radius: 0.3rem;
+}
+
+.notification {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #00796b;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 6px;
+    z-index: 1000;
+    display: none;
+    font-size: 15px;
+}
+
+#copyArea {
+    position: absolute;
+    left: -9999px;
+}
+
+.list-group-item {
+    border-radius: 0 !important;
+}
+
+.vh-80 {
+    height: 80vh;
+}
+
+.max-w-400 {
+    max-width: 400px;
+}
+
+.max-w-300 {
+    max-width: 300px;
+}
+
+.text-primary-color {
+    color: #375a7f;
+}
+
+.h1-custom {
+    font-size: 1.5rem;
+}
+
+.h2-custom {
+    font-size: 1.1rem;
+}

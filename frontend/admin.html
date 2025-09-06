@@ -5,118 +5,7 @@
     <meta charset="UTF-8">
     <title>Admin - Estudiantes</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        body {
-            background: #f4f7fa;
-            color: #23272b;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        .navbar {
-            border-radius: 0;
-        }
-
-        .theme-dark {
-            background: #181a1b !important;
-            color: #e0e0e0 !important;
-        }
-
-        .theme-dark .navbar,
-        .theme-dark .footer,
-        .theme-dark .modal-content,
-        .theme-dark .table {
-            background: #23272b !important;
-            color: #e0e0e0 !important;
-        }
-
-        .theme-dark .card,
-        .theme-dark .form-control,
-        .theme-dark .modal-content {
-            background: #23272b !important;
-            color: #e0e0e0 !important;
-            border-color: #343a40 !important;
-        }
-
-        .theme-dark .btn-primary {
-            background: #375a7f;
-            border-color: #375a7f;
-        }
-
-        .theme-dark .btn-danger {
-            background: #a94442;
-            border-color: #a94442;
-        }
-
-        .theme-dark .btn-info {
-            background: #2c82c9;
-            border-color: #2c82c9;
-        }
-
-        .theme-dark .btn-secondary {
-            background: #444950;
-            border-color: #444950;
-        }
-
-        .theme-dark .form-control::placeholder {
-            color: #bfc5ca;
-        }
-
-        .footer {
-            background: #23272b;
-            color: #bfc5ca;
-            padding: 30px 0 10px 0;
-            margin-top: 40px;
-        }
-
-        .footer a {
-            color: #bfc5ca;
-            text-decoration: none;
-        }
-
-        .footer a:hover {
-            color: #fff;
-            text-decoration: underline;
-        }
-
-        .theme-toggle {
-            position: fixed;
-            right: 24px;
-            bottom: 24px;
-            z-index: 1050;
-        }
-
-        .theme-toggle .btn {
-            border-radius: 50%;
-            width: 48px;
-            height: 48px;
-            padding: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
-            font-size: 1.5rem;
-        }
-
-        .brand-link {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: #375a7f !important;
-            letter-spacing: 1px;
-        }
-
-        .table {
-            background: #fff;
-        }
-
-        .theme-dark .table-bordered th,
-        .theme-dark .table-bordered td {
-            border-color: #343a40 !important;
-        }
-
-        .modal-content {
-            border-radius: 0.3rem;
-        }
-    </style>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body class="bg-light">
@@ -146,10 +35,10 @@
     <div class="container mt-4">
         <div class="row mb-3">
             <div class="col-md-6">
-                <h2 class="mb-0" style="color: #375a7f;">Administración de Estudiantes</h2>
+                <h2 class="mb-0 text-primary-color">Administración de Estudiantes</h2>
             </div>
             <div class="col-md-6 d-flex align-items-center justify-content-md-end mt-2 mt-md-0">
-                <input id="searchInput" type="text" class="form-control" style="max-width: 300px;"
+                <input id="searchInput" type="text" class="form-control max-w-300"
                     placeholder="Buscar por nombre o código...">
             </div>
         </div>

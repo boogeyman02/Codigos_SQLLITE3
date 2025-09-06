@@ -6,101 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Admin</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        body {
-            background: #f4f7fa;
-            color: #23272b;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        .navbar {
-            border-radius: 0;
-        }
-
-        .theme-dark {
-            background: #181a1b !important;
-            color: #e0e0e0 !important;
-        }
-
-        .theme-dark .navbar,
-        .theme-dark .footer {
-            background: #23272b !important;
-            color: #e0e0e0 !important;
-        }
-
-        .theme-dark .card,
-        .theme-dark .form-control {
-            background: #23272b !important;
-            color: #e0e0e0 !important;
-            border-color: #343a40 !important;
-        }
-
-        .theme-dark .btn-dark {
-            background: #375a7f;
-            border-color: #375a7f;
-        }
-
-        .theme-dark .btn-outline-danger {
-            color: #e57373;
-            border-color: #e57373;
-        }
-
-        .theme-dark .btn-outline-danger:hover {
-            background: #e57373;
-            color: #23272b;
-        }
-
-        .theme-dark .form-control::placeholder {
-            color: #bfc5ca;
-        }
-
-        .footer {
-            background: #23272b;
-            color: #bfc5ca;
-            padding: 30px 0 10px 0;
-            margin-top: 40px;
-        }
-
-        .footer a {
-            color: #bfc5ca;
-            text-decoration: none;
-        }
-
-        .footer a:hover {
-            color: #fff;
-            text-decoration: underline;
-        }
-
-        .theme-toggle {
-            position: fixed;
-            right: 24px;
-            bottom: 24px;
-            z-index: 1050;
-        }
-
-        .theme-toggle .btn {
-            border-radius: 50%;
-            width: 48px;
-            height: 48px;
-            padding: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
-            font-size: 1.5rem;
-        }
-
-        .brand-link {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: #375a7f !important;
-            letter-spacing: 1px;
-        }
-
-        .card {
-            border-radius: 0.3rem;
-        }
-    </style>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body class="bg-light">
@@ -132,10 +38,10 @@
         </div>
     </nav>
     <!-- Contenido -->
-    <div class="container d-flex justify-content-center align-items-center" style="height: 80vh;">
-        <div class="card shadow-lg w-100" style="max-width: 400px;">
+    <div class="container d-flex justify-content-center align-items-center vh-80">
+        <div class="card shadow-lg w-100 max-w-400">
             <div class="card-body">
-                <h4 class="card-title text-center mb-4" style="color: #375a7f;">Login Administrador</h4>
+                <h4 class="card-title text-center mb-4 text-primary-color">Login Administrador</h4>
                 <form id="loginForm">
                     <div class="form-group">
                         <label for="usuario">Usuario</label>

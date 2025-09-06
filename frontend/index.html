@@ -7,163 +7,35 @@
     <title>Lista de Salida</title>
     <!-- Bootstrap 4 CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        body {
-            background: #f4f7fa;
-            color: #23272b;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        .navbar {
-            border-radius: 0;
-        }
-
-        .notification {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #00796b;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 6px;
-            z-index: 1000;
-            display: none;
-            font-size: 15px;
-        }
-
-        #copyArea {
-            position: absolute;
-            left: -9999px;
-        }
-
-        .footer {
-            background: #23272b;
-            color: #bfc5ca;
-            padding: 30px 0 10px 0;
-            margin-top: 40px;
-        }
-
-        .footer a {
-            color: #bfc5ca;
-            text-decoration: none;
-        }
-
-        .footer a:hover {
-            color: #fff;
-            text-decoration: underline;
-        }
-
-        .theme-dark {
-            background: #181a1b !important;
-            color: #e0e0e0 !important;
-        }
-
-        .theme-dark .navbar,
-        .theme-dark .card-header,
-        .theme-dark .footer {
-            background: #23272b !important;
-            color: #e0e0e0 !important;
-        }
-
-        .theme-dark .card,
-        .theme-dark .list-group-item,
-        .theme-dark .form-control {
-            background: #23272b !important;
-            color: #e0e0e0 !important;
-            border-color: #343a40 !important;
-        }
-
-        .theme-dark .btn-primary {
-            background: #375a7f;
-            border-color: #375a7f;
-        }
-
-        .theme-dark .btn-danger {
-            background: #a94442;
-            border-color: #a94442;
-        }
-
-        .theme-dark .btn-success {
-            background: #218838;
-            border-color: #218838;
-        }
-
-        .theme-dark .btn-outline-danger {
-            color: #e57373;
-            border-color: #e57373;
-        }
-
-        .theme-dark .btn-outline-danger:hover {
-            background: #e57373;
-            color: #23272b;
-        }
-
-        .theme-dark .form-control::placeholder {
-            color: #bfc5ca;
-        }
-
-        .theme-toggle {
-            position: fixed;
-            right: 24px;
-            bottom: 24px;
-            z-index: 1050;
-        }
-
-        .theme-toggle .btn {
-            border-radius: 50%;
-            width: 48px;
-            height: 48px;
-            padding: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
-            font-size: 1.5rem;
-        }
-
-        .card {
-            border-radius: 0.3rem;
-        }
-
-        .list-group-item {
-            border-radius: 0 !important;
-        }
-
-        .brand-link {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: #375a7f !important;
-            letter-spacing: 1px;
-        }
-    </style>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
+    <!-- Navbar Bootstrap -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+        <a class="navbar-brand brand-link" href="index.html">Gestión Estudiantes</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Inicio</a>
+                </li>
+                <li class="nav-item" id="btnLoginNav">
+                    <a class="nav-link" href="login.html">Admin</a>
+                </li>
+                <li class="nav-item d-none" id="btnLogoutNav">
+                    <a class="nav-link text-danger" href="#" onclick="logout()">Salir</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
     <div class="container py-3">
-        <!-- Navbar Bootstrap -->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
-            <a class="navbar-brand brand-link" href="index.html">Gestión Estudiantes</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html">Inicio</a>
-                    </li>
-                    <li class="nav-item" id="btnLoginNav">
-                        <a class="nav-link" href="login.html">Admin</a>
-                    </li>
-                    <li class="nav-item d-none" id="btnLogoutNav">
-                        <a class="nav-link text-danger" href="#" onclick="logout()">Salir</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+
         <!-- Título principal -->
-        <h1 class="text-center mb-4" style="font-size: 1.5rem; color: #375a7f;">Buscar Estudiante</h1>
+        <h1 class="text-center mb-4 h1-custom text-primary-color">Buscar Estudiante</h1>
         <!-- Buscador -->
         <form class="mb-3">
             <div class="form-row align-items-center">
@@ -200,7 +72,7 @@
         <!-- Lista -->
         <div class="card shadow-sm mb-4">
             <div class="card-header bg-secondary text-white text-center">
-                <h2 id="listaTitle" class="mb-0" style="font-size: 1.1rem;">Lista de Personas a pie</h2>
+                <h2 id="listaTitle" class="mb-0 h2-custom">Lista de Personas a pie</h2>
             </div>
             <ul id="lista" class="list-group list-group-flush"></ul>
         </div>
@@ -312,6 +184,13 @@
             listaTitle.textContent = currentListType === "pie"
                 ? "👟Lista de Personas a pie"
                 : "🚗Lista de Personas en carro";
+            // No llamamos a actualizarLista() para mantener la lista actual
+            const otroTipo = currentListType === "pie" ? "carro" : "pie";
+            const listaExistente = listaSeleccion.some(item => item.tipo === currentListType);
+            if (!listaExistente) {
+                // Si no hay lista para el tipo seleccionado, transferimos la lista del otro tipo
+                listaSeleccion.forEach(item => item.tipo = currentListType);
+            }
             actualizarLista();
         });
 
