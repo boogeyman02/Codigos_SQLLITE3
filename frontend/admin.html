@@ -6,6 +6,7 @@
     <title>Admin - Estudiantes</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/admin.css">
 </head>
 
 <body class="bg-light">
@@ -38,17 +39,29 @@
                 <h2 class="mb-0 text-primary-color">Administración de Estudiantes</h2>
             </div>
             <div class="col-md-6 d-flex align-items-center justify-content-md-end mt-2 mt-md-0">
+                <select id="filtroDocente" class="form-control mr-2 max-w-200" style="max-width: 200px;">
+                    <option value="">Todos los docentes</option>
+                </select>
                 <input id="searchInput" type="text" class="form-control max-w-300"
                     placeholder="Buscar por nombre o código...">
             </div>
         </div>
-        <button class="btn btn-primary mb-3" data-toggle="modal" data-target="#modalAgregar">
-            ➕ Agregar Estudiante
-        </button>
+        <div class="d-flex mb-3">
+            <button class="btn btn-primary mr-2" data-toggle="modal" data-target="#modalAgregar">
+                ➕ Agregar Estudiante
+            </button>
+            <button id="btnEditarMasivo" class="btn btn-info" disabled>
+                ✏️ Edición Masiva (<span id="contadorSeleccionados">0</span>)
+            </button>
+        </div>
+
         <div class="table-responsive">
             <table class="table table-bordered table-striped">
                 <thead class="thead-dark">
                     <tr>
+                        <th>
+                            <input type="checkbox" id="seleccionarTodos" title="Seleccionar todos">
+                        </th>
                         <th>ID</th>
                         <th>Nombre</th>
                         <th>Código</th>
@@ -110,6 +123,49 @@
             </div>
         </div>
     </div>
+    <!-- Modal Edición Masiva -->
+    <div class="modal fade" id="modalEditarMasivo" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form id="formEditarMasivo">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Edición Masiva</h5>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>Campo a editar:</label>
+                            <select class="form-control mb-3" id="campoEditar">
+                                <option value="docente">Docente</option>
+                                <option value="encargado">Encargado</option>
+                            </select>
+                        </div>
+                        <div id="docenteFields" class="form-group">
+                            <label>Docente actual:</label>
+                            <select class="form-control mb-3" id="docenteActual">
+                                <option value="">Seleccionar docente...</option>
+                            </select>
+                            <label>Nuevo docente:</label>
+                            <input type="text" class="form-control" id="nuevoDocente" placeholder="Nuevo docente">
+                            <button type="button" class="btn btn-info btn-sm mt-2" id="btnSeleccionarPorDocente">
+                                Seleccionar estudiantes de este docente
+                            </button>
+                        </div>
+                        <div id="otrosCampos" class="form-group d-none">
+                            <label>Nuevo valor:</label>
+                            <input type="text" class="form-control" id="nuevoValor">
+                        </div>
+                        <small class="text-muted">Se actualizarán <span id="cantidadEstudiantes">0</span> estudiantes
+                            seleccionados.</small>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Actualizar</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
     <!-- Footer -->
     <footer class="footer mt-auto">
         <div class="container">
@@ -144,7 +200,7 @@
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://kit.fontawesome.com/4b8b0b6b7b.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <script>
         // Modo oscuro
         const toggleThemeBtn = document.getElementById('toggleTheme');
@@ -174,30 +230,39 @@
         document.getElementById('year').textContent = new Date().getFullYear();
 
         let estudiantesGlobal = [];
+        let docentesUnicos = new Set();
+
         async function cargarEstudiantes() {
             const res = await fetch("/api/estudiantes");
             const estudiantes = await res.json();
             estudiantesGlobal = estudiantes;
             renderTabla(estudiantes);
+            actualizarListaDocentes();
         }
+        let estudiantesSeleccionados = new Set();
         function renderTabla(estudiantes) {
             const tbody = document.getElementById("tablaEstudiantes");
             tbody.innerHTML = "";
             estudiantes.forEach(est => {
                 const tr = document.createElement("tr");
                 tr.innerHTML = `
-          <td>${est.id}</td>
-          <td>${est.nombre}</td>
-          <td>${est.codigo}</td>
-          <td>${est.docente || ""}</td>
-          <td>${est.encargado || ""}</td>
-          <td>
-            <button class="btn btn-sm btn-info" onclick='abrirEditar(${JSON.stringify(est)})'>✏️ Editar</button>
-            <button class="btn btn-sm btn-danger" onclick="eliminar(${est.id})">🗑️ Eliminar</button>
-          </td>
-        `;
+                    <td>
+                        <input type="checkbox" class="seleccion-estudiante" data-id="${est.id}" 
+                            ${estudiantesSeleccionados.has(est.id) ? 'checked' : ''}>
+                    </td>
+                    <td>${est.id}</td>
+                    <td>${est.nombre}</td>
+                    <td>${est.codigo}</td>
+                    <td>${est.docente || ""}</td>
+                    <td>${est.encargado || ""}</td>
+                    <td>
+                        <button class="btn btn-sm btn-info" onclick='abrirEditar(${JSON.stringify(est)})'>✏️ Editar</button>
+                        <button class="btn btn-sm btn-danger" onclick="eliminar(${est.id})">🗑️ Eliminar</button>
+                    </td>
+                `;
                 tbody.appendChild(tr);
             });
+            actualizarContadorSeleccionados();
         }
         document.getElementById("searchInput").addEventListener("input", function () {
             const value = this.value.trim().toLowerCase();
@@ -241,6 +306,171 @@
             });
             $("#modalEditar").modal("hide");
             cargarEstudiantes();
+        });
+
+        // Manejo de selección
+        document.addEventListener('click', function (e) {
+            if (e.target.matches('#seleccionarTodos')) {
+                const checkboxes = document.querySelectorAll('.seleccion-estudiante');
+                checkboxes.forEach(cb => {
+                    cb.checked = e.target.checked;
+                    const id = parseInt(cb.dataset.id);
+                    if (e.target.checked) {
+                        estudiantesSeleccionados.add(id);
+                    } else {
+                        estudiantesSeleccionados.delete(id);
+                    }
+                });
+                actualizarContadorSeleccionados();
+            }
+
+            if (e.target.matches('.seleccion-estudiante')) {
+                const id = parseInt(e.target.dataset.id);
+                if (e.target.checked) {
+                    estudiantesSeleccionados.add(id);
+                } else {
+                    estudiantesSeleccionados.delete(id);
+                }
+                actualizarContadorSeleccionados();
+            }
+        });
+
+        function actualizarContadorSeleccionados() {
+            const contador = estudiantesSeleccionados.size;
+            document.getElementById('contadorSeleccionados').textContent = contador;
+            document.getElementById('cantidadEstudiantes').textContent = contador;
+            document.getElementById('btnEditarMasivo').disabled = contador === 0;
+        }
+
+        // Edición masiva
+        document.getElementById('btnEditarMasivo').addEventListener('click', function () {
+            $('#modalEditarMasivo').modal('show');
+        });
+
+        function actualizarListaDocentes() {
+            docentesUnicos = new Set(estudiantesGlobal
+                .map(est => est.docente)
+                .filter(docente => docente && docente.trim() !== ''));
+
+            const filtroDocente = document.getElementById('filtroDocente');
+            const docenteActual = document.getElementById('docenteActual');
+
+            // Limpiar y agregar opción por defecto
+            filtroDocente.innerHTML = '<option value="">Todos los docentes</option>';
+            docenteActual.innerHTML = '<option value="">Seleccionar docente...</option>';
+
+            // Agregar docentes a ambos selectores
+            docentesUnicos.forEach(docente => {
+                filtroDocente.add(new Option(docente, docente));
+                docenteActual.add(new Option(docente, docente));
+            });
+        }
+
+        document.getElementById('filtroDocente').addEventListener('change', function () {
+            const docenteSeleccionado = this.value;
+            const filtrados = docenteSeleccionado
+                ? estudiantesGlobal.filter(est => est.docente === docenteSeleccionado)
+                : estudiantesGlobal;
+            renderTabla(filtrados);
+        });
+
+        document.getElementById('campoEditar').addEventListener('change', function () {
+            const isDocente = this.value === 'docente';
+            document.getElementById('docenteFields').classList.toggle('d-none', !isDocente);
+            document.getElementById('otrosCampos').classList.toggle('d-none', isDocente);
+        });
+
+        document.getElementById('btnSeleccionarPorDocente').addEventListener('click', function () {
+            const docenteSeleccionado = document.getElementById('docenteActual').value;
+            if (!docenteSeleccionado) {
+                alert('Por favor seleccione un docente');
+                return;
+            }
+
+            estudiantesSeleccionados.clear();
+            const estudiantesDelDocente = estudiantesGlobal.filter(est => est.docente === docenteSeleccionado);
+            estudiantesDelDocente.forEach(est => estudiantesSeleccionados.add(est.id));
+            actualizarContadorSeleccionados();
+            renderTabla(estudiantesGlobal);
+        });
+
+        document.getElementById('formEditarMasivo').addEventListener('submit', async function (e) {
+            e.preventDefault();
+            const campo = document.getElementById('campoEditar').value;
+            const valor = campo === 'docente'
+                ? document.getElementById('nuevoDocente').value
+                : document.getElementById('nuevoValor').value;
+
+            if (!valor) {
+                alert('Por favor ingrese un valor');
+                return;
+            }
+
+            try {
+                const token = localStorage.getItem('loggedIn');
+                if (!token) {
+                    alert('Sesión expirada. Por favor, vuelva a iniciar sesión.');
+                    window.location.href = 'login.html';
+                    return;
+                }
+
+                const estudiantes = Array.from(estudiantesSeleccionados);
+                let errores = [];
+
+                for (const id of estudiantes) {
+                    try {
+                        // Primero obtenemos el estudiante actual
+                        const estudianteActual = estudiantesGlobal.find(e => e.id === id);
+                        if (!estudianteActual) {
+                            throw new Error('Estudiante no encontrado');
+                        }
+
+                        // Creamos un objeto con todos los datos actuales
+                        const datosActualizados = {
+                            nombre: estudianteActual.nombre,
+                            codigo: estudianteActual.codigo,
+                            docente: estudianteActual.docente,
+                            encargado: estudianteActual.encargado,
+                            // Actualizamos solo el campo específico
+                            [campo]: valor
+                        };
+
+                        const response = await fetch(`/api/estudiantes/${id}`, {
+                            method: 'PUT',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify(datosActualizados)
+                        });
+
+                        if (!response.ok) {
+                            throw new Error(`Error al actualizar estudiante ${id}: ${response.statusText}`);
+                        }
+
+                        const responseData = await response.json();
+                        if (!responseData.success) {
+                            throw new Error(responseData.message || 'Error al actualizar');
+                        }
+                    } catch (err) {
+                        errores.push(`ID ${id}: ${err.message}`);
+                        console.error(`Error actualizando estudiante ${id}:`, err);
+                    }
+                }
+
+                if (errores.length > 0) {
+                    alert(`Se encontraron algunos errores:\n${errores.join('\n')}`);
+                } else {
+                    $('#modalEditarMasivo').modal('hide');
+                    estudiantesSeleccionados.clear();
+                    actualizarContadorSeleccionados();
+                    await cargarEstudiantes();
+                    actualizarListaDocentes();
+                    alert('Estudiantes actualizados correctamente');
+                }
+            } catch (error) {
+                alert('Error al realizar las actualizaciones');
+                console.error('Error general:', error);
+            }
         });
 
         async function eliminar(id) {
