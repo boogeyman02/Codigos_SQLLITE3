@@ -59,7 +59,6 @@ app.post("/api/codigos", async (req, res) => {
   try {
     const { Nombre, Codigo, Docente, Encargado } = req.body;
 
-    // Insertar (el id se genera automáticamente en Supabase)
     const { data, error } = await supabase
       .from("Codigos")
       .insert([{ Nombre, Codigo, Docente, Encargado }])
@@ -93,7 +92,6 @@ app.put("/api/codigos/:id", async (req, res) => {
       return res.status(404).json({ error: "Registro no encontrado" });
     }
 
-    // Actualizar el registro
     const { data, error } = await supabase
       .from("Codigos")
       .update({ Nombre, Codigo, Docente, Encargado })
@@ -154,12 +152,10 @@ app.use((req, res) => {
 });
 
 /* ====================================
-   INICIAR SERVIDOR (Render o local)
+   7. INICIAR SERVIDOR (Render o local)
 ==================================== */
-if (process.env.NODE_ENV !== "production") {
-  app.listen(PORT, () => {
-    console.log(`🚀 Servidor corriendo en http://localhost:${PORT}`);
-  });
-}
+app.listen(PORT, () => {
+  console.log(`🚀 Servidor corriendo en el puerto ${PORT}`);
+});
 
-export default app; // Necesario para Vercel
+export default app; // Solo necesario si lo usas en Vercel
