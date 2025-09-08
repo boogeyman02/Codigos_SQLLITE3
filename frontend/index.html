@@ -118,6 +118,10 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://kit.fontawesome.com/4b8b0b6b7b.js" crossorigin="anonymous"></script>
+
+
+
+
     <script>
         // ⚠️ Evitar refrescar la página por error
         window.onbeforeunload = function () {
@@ -146,7 +150,6 @@
             const isDark = document.body.classList.contains('theme-dark');
             setTheme(!isDark);
         });
-        // Mantener preferencia
         if (localStorage.getItem('theme') === 'dark') {
             setTheme(true);
         }
@@ -156,10 +159,10 @@
 
         async function cargarEstudiantes() {
             try {
-                // 🔥 corregido endpoint
-                const res = await fetch("/api/estudiantes");
+                const res = await fetch("/api/codigos"); // ✅ endpoint corregido
                 estudiantes = await res.json();
-                console.log("✅ Estudiantes cargados:", estudiantes);
+
+                console.log("✅ Estudiantes cargados desde Supabase:", estudiantes);
             } catch (error) {
                 console.error("❌ Error cargando estudiantes:", error);
             }
@@ -182,36 +185,36 @@
         listTypeSelect.addEventListener("change", () => {
             currentListType = listTypeSelect.value;
             listaTitle.textContent = currentListType === "pie"
-                ? "👟Lista de Personas a pie"
-                : "🚗Lista de Personas en carro";
-            // No llamamos a actualizarLista() para mantener la lista actual
+                ? "👟 Lista de Personas a pie"
+                : "🚗 Lista de Personas en carro";
+
             const otroTipo = currentListType === "pie" ? "carro" : "pie";
             const listaExistente = listaSeleccion.some(item => item.tipo === currentListType);
             if (!listaExistente) {
-                // Si no hay lista para el tipo seleccionado, transferimos la lista del otro tipo
                 listaSeleccion.forEach(item => item.tipo = currentListType);
             }
             actualizarLista();
         });
 
+        // --- Buscar estudiante ---
         searchBox.addEventListener("input", () => {
             const termino = searchBox.value.trim().toLowerCase();
             resultDiv.innerHTML = "";
 
             if (termino.length > 0) {
                 const encontrados = estudiantes.filter(e =>
-                    e.nombre.toLowerCase().includes(termino) ||
-                    e.codigo.includes(termino)
+                    e.Nombre.toLowerCase().includes(termino) ||
+                    e.Codigo.toString().includes(termino) // Codigo es numérico en la BD
                 );
 
                 if (encontrados.length > 0) {
                     let html = '<div class="list-group">';
                     encontrados.forEach(est => {
                         html += `
-              <label class="list-group-item d-flex align-items-center">
-                <input type="checkbox" class="mr-2" id="est-${est.codigo}" onchange="agregarALista('${est.codigo}')">
-                <span><strong>${est.nombre}</strong> - Código: ${est.codigo} - Docente: ${est.docente}</span>
-              </label>`;
+                        <label class="list-group-item d-flex align-items-center">
+                            <input type="checkbox" class="mr-2" id="est-${est.Codigo}" onchange="agregarALista('${est.Codigo}')">
+                            <span><strong>${est.Nombre}</strong> - Código: ${est.Codigo} - Docente: ${est.Docente}</span>
+                        </label>`;
                     });
                     html += '</div>';
                     resultDiv.innerHTML = html;
@@ -222,8 +225,8 @@
         });
 
         function agregarALista(codigo) {
-            const estudiante = estudiantes.find(e => e.codigo === codigo);
-            if (estudiante && !listaSeleccion.some(item => item.codigo === codigo && item.tipo === currentListType)) {
+            const estudiante = estudiantes.find(e => e.Codigo == codigo);
+            if (estudiante && !listaSeleccion.some(item => item.Codigo == codigo && item.tipo === currentListType)) {
                 listaSeleccion.push({ ...estudiante, tipo: currentListType, manual: false });
                 actualizarLista();
             }
@@ -235,9 +238,9 @@
             const nombre = newNameInput.value.trim();
             if (nombre) {
                 listaSeleccion.push({
-                    nombre: nombre,
-                    codigo: "MANUAL",
-                    docente: "",
+                    Nombre: nombre,
+                    Codigo: "MANUAL",
+                    Docente: "",
                     tipo: currentListType,
                     manual: true
                 });
@@ -258,12 +261,12 @@
             listaFiltrada.forEach((est, idx) => {
                 const li = document.createElement("li");
                 li.className = "list-group-item d-flex justify-content-between align-items-center";
-                li.textContent = `${idx + 1}. ${est.nombre} ${est.codigo !== "MANUAL" ? "(Código: " + est.codigo + ")" : ""}`;
+                li.textContent = `${idx + 1}. ${est.Nombre} ${est.Codigo !== "MANUAL" ? "(Código: " + est.Codigo + ")" : ""}`;
 
                 const removeBtn = document.createElement("button");
                 removeBtn.innerHTML = "❌";
                 removeBtn.className = "btn btn-sm btn-outline-danger ml-2";
-                removeBtn.onclick = () => eliminarDeLista(est.codigo, est.manual);
+                removeBtn.onclick = () => eliminarDeLista(est.Codigo, est.manual);
 
                 li.appendChild(removeBtn);
                 listaUl.appendChild(li);
@@ -272,9 +275,9 @@
 
         function eliminarDeLista(codigo, esManual) {
             if (esManual) {
-                listaSeleccion = listaSeleccion.filter(item => !(item.codigo === codigo && item.manual && item.tipo === currentListType));
+                listaSeleccion = listaSeleccion.filter(item => !(item.Codigo == codigo && item.manual && item.tipo === currentListType));
             } else {
-                listaSeleccion = listaSeleccion.filter(item => !(item.codigo === codigo && item.tipo === currentListType));
+                listaSeleccion = listaSeleccion.filter(item => !(item.Codigo == codigo && item.tipo === currentListType));
             }
             actualizarLista();
         }
@@ -285,7 +288,7 @@
             let texto = `LISTA DE ${tipoLista}:\n\n`;
 
             texto += listaFiltrada.map((est, idx) => {
-                return `${idx + 1}. ${est.nombre} ${est.codigo !== "MANUAL" ? "(Código: " + est.codigo + ")" : ""}`;
+                return `${idx + 1}. ${est.Nombre} ${est.Codigo !== "MANUAL" ? "(Código: " + est.Codigo + ")" : ""}`;
             }).join("\n");
 
             copyArea.value = texto;
@@ -309,6 +312,7 @@
         // Footer año
         document.getElementById('year').textContent = new Date().getFullYear();
     </script>
+
 </body>
 
 </html>

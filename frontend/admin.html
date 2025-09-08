@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Admin - Estudiantes</title>
+    <title>Admin - Códigos</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/admin.css">
@@ -11,45 +11,36 @@
 
 <body class="bg-light">
     <script>
-        // Verificar login antes de mostrar admin
+        // 🔒 Verificar login antes de mostrar admin
         if (localStorage.getItem("loggedIn") !== "true") {
             window.location.href = "login.html";
         }
     </script>
+
+    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
-        <a class="navbar-brand brand-link" href="index.html">Gestión Estudiantes</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <a class="navbar-brand brand-link" href="index.html">Gestión Códigos</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="index.html">Inicio</a>
-                </li>
-                <li class="nav-item d-none" id="btnLogoutNav">
-                    <a class="nav-link text-danger" href="#" onclick="logout()">Salir</a>
-                </li>
-            </ul>
-        </div>
     </nav>
+
     <div class="container mt-4">
         <div class="row mb-3">
             <div class="col-md-6">
-                <h2 class="mb-0 text-primary-color">Administración de Estudiantes</h2>
+                <h2 class="mb-0 text-primary-color">Administración de Códigos</h2>
             </div>
             <div class="col-md-6 d-flex align-items-center justify-content-md-end mt-2 mt-md-0">
-                <select id="filtroDocente" class="form-control mr-2 max-w-200" style="max-width: 200px;">
+                <select id="filtroDocente" class="form-control mr-2" style="max-width: 200px;">
                     <option value="">Todos los docentes</option>
                 </select>
-                <input id="searchInput" type="text" class="form-control max-w-300"
-                    placeholder="Buscar por nombre o código...">
+                <input id="searchInput" type="text" class="form-control" placeholder="Buscar por nombre o código...">
             </div>
         </div>
+
         <div class="d-flex mb-3">
-            <button class="btn btn-primary mr-2" data-toggle="modal" data-target="#modalAgregar">
-                ➕ Agregar Estudiante
-            </button>
+            <button class="btn btn-primary mr-2" data-toggle="modal" data-target="#modalAgregar">➕ Agregar
+                Código</button>
             <button id="btnEditarMasivo" class="btn btn-info" disabled>
                 ✏️ Edición Masiva (<span id="contadorSeleccionados">0</span>)
             </button>
@@ -59,9 +50,7 @@
             <table class="table table-bordered table-striped">
                 <thead class="thead-dark">
                     <tr>
-                        <th>
-                            <input type="checkbox" id="seleccionarTodos" title="Seleccionar todos">
-                        </th>
+                        <th><input type="checkbox" id="seleccionarTodos" title="Seleccionar todos"></th>
                         <th>ID</th>
                         <th>Nombre</th>
                         <th>Código</th>
@@ -70,22 +59,22 @@
                         <th>Acciones</th>
                     </tr>
                 </thead>
-                <tbody id="tablaEstudiantes">
-                    <!-- Los estudiantes se cargarán aquí con JS -->
-                </tbody>
+                <tbody id="tablaCodigos"></tbody>
             </table>
         </div>
     </div>
+
     <!-- Modal Agregar -->
     <div class="modal fade" id="modalAgregar" tabindex="-1">
         <div class="modal-dialog">
             <div class="modal-content">
                 <form id="formAgregar">
                     <div class="modal-header">
-                        <h5 class="modal-title">Agregar Estudiante</h5>
+                        <h5 class="modal-title">Agregar Código</h5>
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
                     <div class="modal-body">
+                        <input type="hidden" name="id">
                         <input type="text" class="form-control mb-2" name="nombre" placeholder="Nombre" required>
                         <input type="text" class="form-control mb-2" name="codigo" placeholder="Código" required>
                         <input type="text" class="form-control mb-2" name="docente" placeholder="Docente">
@@ -99,13 +88,14 @@
             </div>
         </div>
     </div>
-    <!-- Modal Editar -->
+
+    <!-- Modal Editar Individual -->
     <div class="modal fade" id="modalEditar" tabindex="-1">
         <div class="modal-dialog">
             <div class="modal-content">
                 <form id="formEditar">
                     <div class="modal-header">
-                        <h5 class="modal-title">Editar Estudiante</h5>
+                        <h5 class="modal-title">Editar Código</h5>
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
                     <div class="modal-body">
@@ -123,7 +113,8 @@
             </div>
         </div>
     </div>
-    <!-- Modal Edición Masiva -->
+
+    <!-- Modal Editar Masivo -->
     <div class="modal fade" id="modalEditarMasivo" tabindex="-1">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -136,27 +127,17 @@
                         <div class="form-group">
                             <label>Campo a editar:</label>
                             <select class="form-control mb-3" id="campoEditar">
-                                <option value="docente">Docente</option>
-                                <option value="encargado">Encargado</option>
+                                <option value="Docente">Docente</option>
+                                <option value="Encargado">Encargado</option>
                             </select>
                         </div>
-                        <div id="docenteFields" class="form-group">
-                            <label>Docente actual:</label>
-                            <select class="form-control mb-3" id="docenteActual">
-                                <option value="">Seleccionar docente...</option>
-                            </select>
-                            <label>Nuevo docente:</label>
-                            <input type="text" class="form-control" id="nuevoDocente" placeholder="Nuevo docente">
-                            <button type="button" class="btn btn-info btn-sm mt-2" id="btnSeleccionarPorDocente">
-                                Seleccionar estudiantes de este docente
-                            </button>
-                        </div>
-                        <div id="otrosCampos" class="form-group d-none">
+                        <div class="form-group">
                             <label>Nuevo valor:</label>
-                            <input type="text" class="form-control" id="nuevoValor">
+                            <input type="text" class="form-control" id="nuevoValor" placeholder="Ingrese nuevo valor">
                         </div>
-                        <small class="text-muted">Se actualizarán <span id="cantidadEstudiantes">0</span> estudiantes
-                            seleccionados.</small>
+                        <small class="text-muted">
+                            Se actualizarán <span id="cantidadCodigos">0</span> registros seleccionados.
+                        </small>
                     </div>
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-primary">Actualizar</button>
@@ -166,320 +147,207 @@
             </div>
         </div>
     </div>
-    <!-- Footer -->
-    <footer class="footer mt-auto">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 mb-3 mb-md-0">
-                    <h5 class="text-uppercase">Gestión Estudiantes</h5>
-                    <p class="mb-1">Sistema profesional para la gestión y control de listas de salida de estudiantes.
-                    </p>
-                </div>
-                <div class="col-md-4 mb-3 mb-md-0">
-                    <h6 class="text-uppercase">Enlaces útiles</h6>
-                    <ul class="list-unstyled">
-                        <li><a href="index.html">Inicio</a></li>
-                        <li><a href="admin.html">Admin</a></li>
-                        <li><a href="#" onclick="window.scrollTo(0,0)">Ir arriba</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-4 text-md-right">
-                    <h6 class="text-uppercase">Contacto</h6>
-                    <p class="mb-1">Desarrollado por <a
-                            href="https://www.instagram.com/yeison02._.ssj?igsh=cTBqc2I4YXpwbXFj" target="_blank">Yeison
-                            Prada</a></p>
-                    <p class="mb-0">&copy; <span id="year"></span> Todos los derechos reservados.</p>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <div class="theme-toggle">
-        <button id="toggleTheme" class="btn btn-outline-secondary" title="Cambiar tema">
-            <span id="themeIcon" class="fas fa-moon"></span>
-        </button>
-    </div>
+
+    <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <script>
-        // Modo oscuro
-        const toggleThemeBtn = document.getElementById('toggleTheme');
-        const themeIcon = document.getElementById('themeIcon');
-        function setTheme(dark) {
-            if (dark) {
-                document.body.classList.add('theme-dark');
-                themeIcon.classList.remove('fa-moon');
-                themeIcon.classList.add('fa-sun');
-                toggleThemeBtn.setAttribute('title', 'Modo claro');
-                localStorage.setItem('theme', 'dark');
-            } else {
-                document.body.classList.remove('theme-dark');
-                themeIcon.classList.remove('fa-sun');
-                themeIcon.classList.add('fa-moon');
-                toggleThemeBtn.setAttribute('title', 'Modo oscuro');
-                localStorage.setItem('theme', 'light');
-            }
-        }
-        toggleThemeBtn.addEventListener('click', function () {
-            const isDark = document.body.classList.contains('theme-dark');
-            setTheme(!isDark);
-        });
-        if (localStorage.getItem('theme') === 'dark') {
-            setTheme(true);
-        }
-        document.getElementById('year').textContent = new Date().getFullYear();
+        let codigosGlobal = [];
+        let seleccionados = new Set();
 
-        let estudiantesGlobal = [];
-        let docentesUnicos = new Set();
-
-        async function cargarEstudiantes() {
-            const res = await fetch("/api/estudiantes");
-            const estudiantes = await res.json();
-            estudiantesGlobal = estudiantes;
-            renderTabla(estudiantes);
-            actualizarListaDocentes();
+        // 🔹 Cargar datos
+        async function cargarCodigos() {
+            const res = await fetch("/api/codigos");
+            const data = await res.json();
+            codigosGlobal = data;
+            renderTabla(data);
+            actualizarDocentes();
         }
-        let estudiantesSeleccionados = new Set();
-        function renderTabla(estudiantes) {
-            const tbody = document.getElementById("tablaEstudiantes");
+
+        // 🔹 Renderizar tabla
+        function renderTabla(codigos) {
+            const tbody = document.getElementById("tablaCodigos");
             tbody.innerHTML = "";
-            estudiantes.forEach(est => {
+            codigos.forEach(codigo => {
                 const tr = document.createElement("tr");
                 tr.innerHTML = `
-                    <td>
-                        <input type="checkbox" class="seleccion-estudiante" data-id="${est.id}" 
-                            ${estudiantesSeleccionados.has(est.id) ? 'checked' : ''}>
-                    </td>
-                    <td>${est.id}</td>
-                    <td>${est.nombre}</td>
-                    <td>${est.codigo}</td>
-                    <td>${est.docente || ""}</td>
-                    <td>${est.encargado || ""}</td>
-                    <td>
-                        <button class="btn btn-sm btn-info" onclick='abrirEditar(${JSON.stringify(est)})'>✏️ Editar</button>
-                        <button class="btn btn-sm btn-danger" onclick="eliminar(${est.id})">🗑️ Eliminar</button>
-                    </td>
-                `;
+          <td><input type="checkbox" class="select-codigo" data-id="${codigo.id}" ${seleccionados.has(codigo.id) ? 'checked' : ''}></td>
+          <td>${codigo.id}</td>
+          <td>${codigo.Nombre}</td>
+          <td>${codigo.Codigo}</td>
+          <td>${codigo.Docente || ''}</td>
+          <td>${codigo.Encargado || ''}</td>
+          <td>
+            <button class="btn btn-warning btn-sm mr-1" onclick="abrirModalEditar(${codigo.id})">✏️ Editar</button>
+            <button class="btn btn-danger btn-sm" onclick="eliminarCodigo(${codigo.id})">🗑️ Eliminar</button>
+          </td>
+        `;
                 tbody.appendChild(tr);
             });
             actualizarContadorSeleccionados();
         }
+
+        // 🔹 Buscar por texto
         document.getElementById("searchInput").addEventListener("input", function () {
             const value = this.value.trim().toLowerCase();
-            const filtrados = estudiantesGlobal.filter(est =>
-                est.nombre.toLowerCase().includes(value) ||
-                est.codigo.toLowerCase().includes(value)
+            const filtrados = codigosGlobal.filter(c =>
+                c.Nombre.toLowerCase().includes(value) || String(c.Codigo).includes(value)
             );
             renderTabla(filtrados);
         });
 
-        function abrirEditar(est) {
+        // 🔹 Agregar nuevo código
+        document.getElementById("formAgregar").addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const form = new FormData(e.target);
+            const data = Object.fromEntries(form.entries());
+
+            // Mapear campos a formato Supabase
+            const payload = {
+                Nombre: data.nombre,
+                Codigo: Number(data.codigo),
+                Docente: data.docente || '',
+                Encargado: data.encargado || ''
+            };
+
+            await fetch("/api/codigos", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(payload)
+            });
+
+            $("#modalAgregar").modal("hide");
+            e.target.reset();
+            cargarCodigos();
+        });
+
+        // 🔹 Abrir modal para editar individual
+        function abrirModalEditar(id) {
+            const codigo = codigosGlobal.find(c => c.id === id);
+            if (!codigo) return;
             const form = document.getElementById("formEditar");
-            form.id.value = est.id;
-            form.nombre.value = est.nombre;
-            form.codigo.value = est.codigo;
-            form.docente.value = est.docente || "";
-            form.encargado.value = est.encargado || "";
+            form.id.value = codigo.id;
+            form.nombre.value = codigo.Nombre;
+            form.codigo.value = codigo.Codigo;
+            form.docente.value = codigo.Docente || '';
+            form.encargado.value = codigo.Encargado || '';
             $("#modalEditar").modal("show");
         }
 
-        document.getElementById("formAgregar").addEventListener("submit", async (e) => {
-            e.preventDefault();
-            const data = Object.fromEntries(new FormData(e.target).entries());
-            await fetch("/api/estudiantes", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(data)
-            });
-            $("#modalAgregar").modal("hide");
-            e.target.reset();
-            cargarEstudiantes();
-        });
-
+        // 🔹 Guardar cambios edición individual
         document.getElementById("formEditar").addEventListener("submit", async (e) => {
             e.preventDefault();
-            const data = Object.fromEntries(new FormData(e.target).entries());
-            await fetch(`/api/estudiantes/${data.id}`, {
+            const form = new FormData(e.target);
+            const data = Object.fromEntries(form.entries());
+
+            const payload = {
+                Nombre: data.nombre,
+                Codigo: Number(data.codigo),
+                Docente: data.docente || '',
+                Encargado: data.encargado || ''
+            };
+
+            await fetch(`/api/codigos/${data.id}`, {
                 method: "PUT",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(data)
+                body: JSON.stringify(payload)
             });
+
             $("#modalEditar").modal("hide");
-            cargarEstudiantes();
+            cargarCodigos();
         });
 
-        // Manejo de selección
-        document.addEventListener('click', function (e) {
-            if (e.target.matches('#seleccionarTodos')) {
-                const checkboxes = document.querySelectorAll('.seleccion-estudiante');
-                checkboxes.forEach(cb => {
+        // 🔹 Eliminar un código
+        async function eliminarCodigo(id) {
+            if (!confirm("¿Seguro que deseas eliminar este registro?")) return;
+            await fetch(`/api/codigos/${id}`, { method: "DELETE" });
+            cargarCodigos();
+        }
+
+        // 🔹 Seleccionar registros
+        document.addEventListener("click", e => {
+            if (e.target.matches("#seleccionarTodos")) {
+                document.querySelectorAll(".select-codigo").forEach(cb => {
                     cb.checked = e.target.checked;
                     const id = parseInt(cb.dataset.id);
-                    if (e.target.checked) {
-                        estudiantesSeleccionados.add(id);
-                    } else {
-                        estudiantesSeleccionados.delete(id);
-                    }
+                    e.target.checked ? seleccionados.add(id) : seleccionados.delete(id);
                 });
                 actualizarContadorSeleccionados();
             }
 
-            if (e.target.matches('.seleccion-estudiante')) {
+            if (e.target.matches(".select-codigo")) {
                 const id = parseInt(e.target.dataset.id);
-                if (e.target.checked) {
-                    estudiantesSeleccionados.add(id);
-                } else {
-                    estudiantesSeleccionados.delete(id);
-                }
+                e.target.checked ? seleccionados.add(id) : seleccionados.delete(id);
                 actualizarContadorSeleccionados();
             }
         });
 
         function actualizarContadorSeleccionados() {
-            const contador = estudiantesSeleccionados.size;
+            const contador = seleccionados.size;
             document.getElementById('contadorSeleccionados').textContent = contador;
-            document.getElementById('cantidadEstudiantes').textContent = contador;
+            document.getElementById('cantidadCodigos').textContent = contador;
             document.getElementById('btnEditarMasivo').disabled = contador === 0;
         }
 
-        // Edición masiva
-        document.getElementById('btnEditarMasivo').addEventListener('click', function () {
+        // 🔹 Edición masiva
+        document.getElementById('btnEditarMasivo').addEventListener('click', () => {
             $('#modalEditarMasivo').modal('show');
         });
 
-        function actualizarListaDocentes() {
-            docentesUnicos = new Set(estudiantesGlobal
-                .map(est => est.docente)
-                .filter(docente => docente && docente.trim() !== ''));
+        document.getElementById('formEditarMasivo').addEventListener('submit', async e => {
+            e.preventDefault();
+            const campo = document.getElementById('campoEditar').value;
+            const valor = document.getElementById('nuevoValor').value;
 
-            const filtroDocente = document.getElementById('filtroDocente');
-            const docenteActual = document.getElementById('docenteActual');
+            if (!valor) {
+                alert("Por favor, ingresa un valor válido.");
+                return;
+            }
 
-            // Limpiar y agregar opción por defecto
-            filtroDocente.innerHTML = '<option value="">Todos los docentes</option>';
-            docenteActual.innerHTML = '<option value="">Seleccionar docente...</option>';
+            for (const id of seleccionados) {
+                const codigoActual = codigosGlobal.find(c => c.id === id);
+                if (!codigoActual) continue;
 
-            // Agregar docentes a ambos selectores
-            docentesUnicos.forEach(docente => {
-                filtroDocente.add(new Option(docente, docente));
-                docenteActual.add(new Option(docente, docente));
+                const actualizado = { ...codigoActual, [campo]: valor };
+
+                await fetch(`/api/codigos/${id}`, {
+                    method: "PUT",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(actualizado)
+                });
+            }
+
+            alert("Registros actualizados correctamente.");
+            $('#modalEditarMasivo').modal('hide');
+            seleccionados.clear();
+            actualizarContadorSeleccionados();
+            cargarCodigos();
+        });
+
+        // 🔹 Actualizar lista de docentes para el filtro
+        function actualizarDocentes() {
+            const filtro = document.getElementById("filtroDocente");
+            filtro.innerHTML = '<option value="">Todos los docentes</option>';
+            const docentes = [...new Set(codigosGlobal.map(c => c.Docente).filter(d => d))];
+            docentes.forEach(docente => {
+                filtro.add(new Option(docente, docente));
             });
         }
 
-        document.getElementById('filtroDocente').addEventListener('change', function () {
+        document.getElementById("filtroDocente").addEventListener("change", function () {
             const docenteSeleccionado = this.value;
             const filtrados = docenteSeleccionado
-                ? estudiantesGlobal.filter(est => est.docente === docenteSeleccionado)
-                : estudiantesGlobal;
+                ? codigosGlobal.filter(c => c.Docente === docenteSeleccionado)
+                : codigosGlobal;
             renderTabla(filtrados);
         });
 
-        document.getElementById('campoEditar').addEventListener('change', function () {
-            const isDocente = this.value === 'docente';
-            document.getElementById('docenteFields').classList.toggle('d-none', !isDocente);
-            document.getElementById('otrosCampos').classList.toggle('d-none', isDocente);
+        // 🔹 Evitar el error de aria-hidden en modales
+        $('#modalEditar').on('hidden.bs.modal', function () {
+            document.activeElement.blur();
         });
 
-        document.getElementById('btnSeleccionarPorDocente').addEventListener('click', function () {
-            const docenteSeleccionado = document.getElementById('docenteActual').value;
-            if (!docenteSeleccionado) {
-                alert('Por favor seleccione un docente');
-                return;
-            }
-
-            estudiantesSeleccionados.clear();
-            const estudiantesDelDocente = estudiantesGlobal.filter(est => est.docente === docenteSeleccionado);
-            estudiantesDelDocente.forEach(est => estudiantesSeleccionados.add(est.id));
-            actualizarContadorSeleccionados();
-            renderTabla(estudiantesGlobal);
-        });
-
-        document.getElementById('formEditarMasivo').addEventListener('submit', async function (e) {
-            e.preventDefault();
-            const campo = document.getElementById('campoEditar').value;
-            const valor = campo === 'docente'
-                ? document.getElementById('nuevoDocente').value
-                : document.getElementById('nuevoValor').value;
-
-            if (!valor) {
-                alert('Por favor ingrese un valor');
-                return;
-            }
-
-            try {
-                const token = localStorage.getItem('loggedIn');
-                if (!token) {
-                    alert('Sesión expirada. Por favor, vuelva a iniciar sesión.');
-                    window.location.href = 'login.html';
-                    return;
-                }
-
-                const estudiantes = Array.from(estudiantesSeleccionados);
-                let errores = [];
-
-                for (const id of estudiantes) {
-                    try {
-                        // Primero obtenemos el estudiante actual
-                        const estudianteActual = estudiantesGlobal.find(e => e.id === id);
-                        if (!estudianteActual) {
-                            throw new Error('Estudiante no encontrado');
-                        }
-
-                        // Creamos un objeto con todos los datos actuales
-                        const datosActualizados = {
-                            nombre: estudianteActual.nombre,
-                            codigo: estudianteActual.codigo,
-                            docente: estudianteActual.docente,
-                            encargado: estudianteActual.encargado,
-                            // Actualizamos solo el campo específico
-                            [campo]: valor
-                        };
-
-                        const response = await fetch(`/api/estudiantes/${id}`, {
-                            method: 'PUT',
-                            headers: {
-                                'Content-Type': 'application/json'
-                            },
-                            body: JSON.stringify(datosActualizados)
-                        });
-
-                        if (!response.ok) {
-                            throw new Error(`Error al actualizar estudiante ${id}: ${response.statusText}`);
-                        }
-
-                        const responseData = await response.json();
-                        if (!responseData.success) {
-                            throw new Error(responseData.message || 'Error al actualizar');
-                        }
-                    } catch (err) {
-                        errores.push(`ID ${id}: ${err.message}`);
-                        console.error(`Error actualizando estudiante ${id}:`, err);
-                    }
-                }
-
-                if (errores.length > 0) {
-                    alert(`Se encontraron algunos errores:\n${errores.join('\n')}`);
-                } else {
-                    $('#modalEditarMasivo').modal('hide');
-                    estudiantesSeleccionados.clear();
-                    actualizarContadorSeleccionados();
-                    await cargarEstudiantes();
-                    actualizarListaDocentes();
-                    alert('Estudiantes actualizados correctamente');
-                }
-            } catch (error) {
-                alert('Error al realizar las actualizaciones');
-                console.error('Error general:', error);
-            }
-        });
-
-        async function eliminar(id) {
-            if (!confirm("¿Seguro que quieres eliminar este estudiante?")) return;
-            await fetch(`/api/estudiantes/${id}`, { method: "DELETE" });
-            cargarEstudiantes();
-        }
-
-        cargarEstudiantes();
+        cargarCodigos();
     </script>
 </body>
 
