@@ -7,19 +7,30 @@ import { createClient } from "@supabase/supabase-js";
 
 dotenv.config();
 
+// --- Solución para __dirname con ES Modules ---
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// --- Middlewares ---
 app.use(cors());
 app.use(express.json());
 
 // --- Inicializar Supabase ---
-const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_KEY);
+if (!process.env.SUPABASE_URL || !process.env.SUPABASE_KEY) {
+  console.error(
+    "❌ ERROR: Faltan variables de entorno SUPABASE_URL o SUPABASE_KEY"
+  );
+  process.exit(1);
+}
+const supabase = createClient(
+  process.env.SUPABASE_URL,
+  process.env.SUPABASE_KEY
+);
 
-// Servir frontend
+// --- Servir el frontend ---
 app.use(express.static(path.join(__dirname, "../frontend")));
 
 /* ====================================
@@ -48,21 +59,10 @@ app.post("/api/codigos", async (req, res) => {
   try {
     const { Nombre, Codigo, Docente, Encargado } = req.body;
 
-    // --- Obtener el mayor id actual ---
-    const { data: maxIdData, error: maxIdError } = await supabase
-      .from("Codigos")
-      .select("id")
-      .order("id", { ascending: false })
-      .limit(1);
-
-    if (maxIdError) throw maxIdError;
-
-    const nuevoId = maxIdData.length > 0 ? maxIdData[0].id + 1 : 1;
-
-    // --- Insertar nuevo registro con id calculado ---
+    // Insertar (el id se genera automáticamente en Supabase)
     const { data, error } = await supabase
       .from("Codigos")
-      .insert([{ id: nuevoId, Nombre, Codigo, Docente, Encargado }])
+      .insert([{ Nombre, Codigo, Docente, Encargado }])
       .select();
 
     if (error) throw error;
@@ -147,8 +147,19 @@ app.post("/api/login", (req, res) => {
 });
 
 /* ====================================
-   INICIAR SERVIDOR
+   6. MANEJO DE RUTAS NO ENCONTRADAS
 ==================================== */
-app.listen(PORT, () => {
-  console.log(`🚀 Servidor corriendo en http://localhost:${PORT}`);
+app.use((req, res) => {
+  res.status(404).json({ error: "Ruta no encontrada" });
 });
+
+/* ====================================
+   INICIAR SERVIDOR (Render o local)
+==================================== */
+if (process.env.NODE_ENV !== "production") {
+  app.listen(PORT, () => {
+    console.log(`🚀 Servidor corriendo en http://localhost:${PORT}`);
+  });
+}
+
+export default app; // Necesario para Vercel
