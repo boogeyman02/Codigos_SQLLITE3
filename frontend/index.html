@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Salida</title>
+    <link rel="icon" href="img/logo.png" type="image/x-icon">
+
     <!-- Bootstrap 4 CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/styles.css">
@@ -13,6 +15,8 @@
 <body>
     <!-- Navbar Bootstrap -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+        <img src="img/logo.png" alt="logo" width="50" height="50" class="d-inline-block align-top mr-2 "
+            style="border-radius: 50%;">
         <a class="navbar-brand brand-link" href="index.html">Gestión Estudiantes</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -23,6 +27,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="index.html">Inicio</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="grados.html">Grados</a>
+                </li>
                 <li class="nav-item" id="btnLoginNav">
                     <a class="nav-link" href="login.html">Admin</a>
                 </li>
@@ -32,10 +39,11 @@
             </ul>
         </div>
     </nav>
-    <div class="container py-3">
 
+    <div class="container py-3">
         <!-- Título principal -->
         <h1 class="text-center mb-4 h1-custom text-primary-color">Buscar Estudiante</h1>
+
         <!-- Buscador -->
         <form class="mb-3">
             <div class="form-row align-items-center">
@@ -45,7 +53,9 @@
                 </div>
             </div>
         </form>
+
         <div id="result" class="mb-3"></div>
+
         <!-- Controles -->
         <div class="row mb-3">
             <div class="col-12 col-md-4 mb-2 mb-md-0">
@@ -62,6 +72,7 @@
                 <button type="button" class="btn btn-danger" onclick="limpiarLista()">🗑 Limpiar Lista</button>
             </div>
         </div>
+
         <!-- Agregar manual -->
         <div class="input-group mb-3">
             <input type="text" id="newName" class="form-control" placeholder="Agregar nombre manualmente">
@@ -69,6 +80,7 @@
                 <button class="btn btn-success" type="button" onclick="agregarManual()">➕ Agregar</button>
             </div>
         </div>
+
         <!-- Lista -->
         <div class="card shadow-sm mb-4">
             <div class="card-header bg-secondary text-white text-center">
@@ -76,16 +88,20 @@
             </div>
             <ul id="lista" class="list-group list-group-flush"></ul>
         </div>
+
         <!-- Área oculta para copiar -->
         <textarea id="copyArea"></textarea>
+
         <!-- Notificación -->
         <div id="notification" class="notification">✅ Lista copiada al portapapeles</div>
     </div>
+
     <div class="theme-toggle">
         <button id="toggleTheme" class="btn btn-outline-secondary" title="Cambiar tema">
             <span id="themeIcon" class="fas fa-moon"></span>
         </button>
     </div>
+
     <!-- Footer -->
     <footer class="footer mt-auto">
         <div class="container">
@@ -113,14 +129,12 @@
             </div>
         </div>
     </footer>
+
     <!-- Bootstrap 4 JS, Popper.js, and jQuery -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://kit.fontawesome.com/4b8b0b6b7b.js" crossorigin="anonymous"></script>
-
-
-
 
     <script>
         // ⚠️ Evitar refrescar la página por error
@@ -161,13 +175,11 @@
             try {
                 const res = await fetch("/api/codigos"); // ✅ endpoint corregido
                 estudiantes = await res.json();
-
                 console.log("✅ Estudiantes cargados desde Supabase:", estudiantes);
             } catch (error) {
                 console.error("❌ Error cargando estudiantes:", error);
             }
         }
-
         cargarEstudiantes();
 
         let listaSeleccion = [];
@@ -249,6 +261,7 @@
             }
         }
 
+        // ✅ Mostrar Nombre + Docente (o solo nombre si es manual)
         function actualizarLista() {
             listaUl.innerHTML = "";
             const listaFiltrada = listaSeleccion.filter(item => item.tipo === currentListType);
@@ -261,7 +274,11 @@
             listaFiltrada.forEach((est, idx) => {
                 const li = document.createElement("li");
                 li.className = "list-group-item d-flex justify-content-between align-items-center";
-                li.textContent = `${idx + 1}. ${est.Nombre} ${est.Codigo !== "MANUAL" ? "(Código: " + est.Codigo + ")" : ""}`;
+
+                // Solo mostrar nombre si es manual, de lo contrario nombre + docente
+                li.textContent = est.manual
+                    ? `${idx + 1}. ${est.Nombre}`
+                    : `${idx + 1}. ${est.Nombre} - Docente: ${est.Docente}`;
 
                 const removeBtn = document.createElement("button");
                 removeBtn.innerHTML = "❌";
@@ -282,13 +299,16 @@
             actualizarLista();
         }
 
+        // ✅ Copiar lista con Nombre + Docente (o solo nombre si es manual)
         function copiarLista() {
             const listaFiltrada = listaSeleccion.filter(item => item.tipo === currentListType);
             const tipoLista = currentListType === "pie" ? "*PERSONAS A PIE 👟*" : "*PERSONAS EN CARRO 🚗*";
             let texto = `LISTA DE ${tipoLista}:\n\n`;
 
             texto += listaFiltrada.map((est, idx) => {
-                return `${idx + 1}. ${est.Nombre} ${est.Codigo !== "MANUAL" ? "(Código: " + est.Codigo + ")" : ""}`;
+                return est.manual
+                    ? `${idx + 1}. ${est.Nombre}`
+                    : `${idx + 1}. ${est.Nombre} - Docente: ${est.Docente}`;
             }).join("\n");
 
             copyArea.value = texto;
@@ -312,7 +332,6 @@
         // Footer año
         document.getElementById('year').textContent = new Date().getFullYear();
     </script>
-
 </body>
 
 </html>

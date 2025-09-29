@@ -4,12 +4,105 @@
 <head>
     <meta charset="UTF-8">
     <title>Admin - Códigos</title>
+    <link rel="icon" href="img/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/admin.css">
+
+
+    <style>
+        /* Fondo general */
+        body {
+            background: linear-gradient(135deg, #3c3f41, #2f3234);
+            /* Gris oscuro suave */
+            color: #e0e0e0;
+            /* Texto claro pero no blanco puro */
+        }
+
+
+        .navbar-brand {
+            color: #e0e0e0 !important;
+        }
+
+        /* Contenedor principal */
+        .container {
+            background: rgba(50, 52, 54, 0.9);
+            /* Fondo gris opaco */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Tabla */
+
+
+        /* Encabezado de la tabla */
+        thead.thead-dark {
+            background-color: #222426 !important;
+            /* Muy oscuro para diferenciar */
+        }
+
+        thead.thead-dark th {
+            color: #f1f1f1;
+        }
+
+
+
+        tbody tr:hover {
+            background-color: rgba(80, 82, 84, 0.9);
+            /* Hover sutil */
+        }
+
+        /* Botones */
+        .btn-primary {
+            background-color: #4a76a8;
+            border-color: #4a76a8;
+        }
+
+        .btn-info {
+            background-color: #5c8a94;
+            border-color: #5c8a94;
+        }
+
+        .btn-danger {
+            background-color: #a64a4a;
+            border-color: #a64a4a;
+        }
+
+        /* Inputs y selects */
+        .form-control {
+            background: rgba(40, 42, 44, 0.9);
+            color: #f1f1f1;
+            border: 1px solid #5c5f62;
+        }
+
+        .form-control::placeholder {
+            color: #aaa;
+        }
+
+        /* Modal */
+        .modal-content {
+            background: rgba(45, 47, 49, 0.95);
+            color: #e0e0e0;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+        }
+
+        /* Selects y datalist */
+        select.form-control {
+            background: rgba(50, 52, 54, 0.9);
+            color: #e0e0e0;
+        }
+
+        /* Sutil separación visual */
+        hr {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+
 </head>
 
-<body class="bg-light">
+<body>
     <script>
         // 🔒 Verificar login antes de mostrar admin
         if (localStorage.getItem("loggedIn") !== "true") {
@@ -18,7 +111,9 @@
     </script>
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+    <nav class="navbar navbar-expand-lg navbar-dark mb-4 bg-dark">
+        <img src="img/logo.png" alt="logo" width="50" height="50" class="d-inline-block align-top mr-2"
+            style="border-radius: 50%;">
         <a class="navbar-brand brand-link" href="index.html">Gestión Códigos</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
@@ -28,7 +123,7 @@
     <div class="container mt-4">
         <div class="row mb-3">
             <div class="col-md-6">
-                <h2 class="mb-0 text-primary-color">Administración de Códigos</h2>
+                <h2 class="mb-0">Administración de Códigos</h2>
             </div>
             <div class="col-md-6 d-flex align-items-center justify-content-md-end mt-2 mt-md-0">
                 <select id="filtroDocente" class="form-control mr-2" style="max-width: 200px;">
@@ -64,6 +159,9 @@
         </div>
     </div>
 
+    <!-- 🔹 Datalist global para sugerencias de docentes -->
+    <datalist id="listaDocentes"></datalist>
+
     <!-- Modal Agregar -->
     <div class="modal fade" id="modalAgregar" tabindex="-1">
         <div class="modal-dialog">
@@ -77,7 +175,9 @@
                         <input type="hidden" name="id">
                         <input type="text" class="form-control mb-2" name="nombre" placeholder="Nombre" required>
                         <input type="text" class="form-control mb-2" name="codigo" placeholder="Código" required>
-                        <input type="text" class="form-control mb-2" name="docente" placeholder="Docente">
+                        <!-- 🔹 Input con datalist para sugerir docentes -->
+                        <input type="text" class="form-control mb-2" name="docente" placeholder="Docente"
+                            list="listaDocentes">
                         <input type="text" class="form-control mb-2" name="encargado" placeholder="Encargado">
                     </div>
                     <div class="modal-footer">
@@ -102,7 +202,9 @@
                         <input type="hidden" name="id">
                         <input type="text" class="form-control mb-2" name="nombre" placeholder="Nombre" required>
                         <input type="text" class="form-control mb-2" name="codigo" placeholder="Código" required>
-                        <input type="text" class="form-control mb-2" name="docente" placeholder="Docente">
+                        <!-- 🔹 Input con datalist para sugerir docentes -->
+                        <input type="text" class="form-control mb-2" name="docente" placeholder="Docente"
+                            list="listaDocentes">
                         <input type="text" class="form-control mb-2" name="encargado" placeholder="Encargado">
                     </div>
                     <div class="modal-footer">
@@ -133,7 +235,9 @@
                         </div>
                         <div class="form-group">
                             <label>Nuevo valor:</label>
-                            <input type="text" class="form-control" id="nuevoValor" placeholder="Ingrese nuevo valor">
+                            <!-- 🔹 Input con datalist para sugerencias de docentes si el campo seleccionado es Docente -->
+                            <input type="text" class="form-control" id="nuevoValor" placeholder="Ingrese nuevo valor"
+                                list="listaDocentes">
                         </div>
                         <small class="text-muted">
                             Se actualizarán <span id="cantidadCodigos">0</span> registros seleccionados.
@@ -161,7 +265,7 @@
             const data = await res.json();
             codigosGlobal = data;
             renderTabla(data);
-            actualizarDocentes();
+            actualizarDocentes(); // Actualiza lista de docentes
         }
 
         // 🔹 Renderizar tabla
@@ -171,17 +275,17 @@
             codigos.forEach(codigo => {
                 const tr = document.createElement("tr");
                 tr.innerHTML = `
-          <td><input type="checkbox" class="select-codigo" data-id="${codigo.id}" ${seleccionados.has(codigo.id) ? 'checked' : ''}></td>
-          <td>${codigo.id}</td>
-          <td>${codigo.Nombre}</td>
-          <td>${codigo.Codigo}</td>
-          <td>${codigo.Docente || ''}</td>
-          <td>${codigo.Encargado || ''}</td>
-          <td>
-            <button class="btn btn-warning btn-sm mr-1" onclick="abrirModalEditar(${codigo.id})">✏️ Editar</button>
-            <button class="btn btn-danger btn-sm" onclick="eliminarCodigo(${codigo.id})">🗑️ Eliminar</button>
-          </td>
-        `;
+                    <td><input type="checkbox" class="select-codigo" data-id="${codigo.id}" ${seleccionados.has(codigo.id) ? 'checked' : ''}></td>
+                    <td>${codigo.id}</td>
+                    <td>${codigo.Nombre}</td>
+                    <td>${codigo.Codigo}</td>
+                    <td>${codigo.Docente || ''}</td>
+                    <td>${codigo.Encargado || ''}</td>
+                    <td>
+                        <button class="btn btn-warning btn-sm mr-1" onclick="abrirModalEditar(${codigo.id})">✏️ Editar</button>
+                        <button class="btn btn-danger btn-sm" onclick="eliminarCodigo(${codigo.id})">🗑️ Eliminar</button>
+                    </td>
+                `;
                 tbody.appendChild(tr);
             });
             actualizarContadorSeleccionados();
@@ -202,7 +306,6 @@
             const form = new FormData(e.target);
             const data = Object.fromEntries(form.entries());
 
-            // Mapear campos a formato Supabase
             const payload = {
                 Nombre: data.nombre,
                 Codigo: Number(data.codigo),
@@ -324,16 +427,32 @@
             cargarCodigos();
         });
 
-        // 🔹 Actualizar lista de docentes para el filtro
+        // 🔹 Actualizar lista de docentes para el filtro y los datalist
         function actualizarDocentes() {
             const filtro = document.getElementById("filtroDocente");
+            const listaDocentes = document.getElementById("listaDocentes");
+
             filtro.innerHTML = '<option value="">Todos los docentes</option>';
+            listaDocentes.innerHTML = '';
+
             const docentes = [...new Set(codigosGlobal.map(c => c.Docente).filter(d => d))];
+
+            // Orden ascendente (A → Z)
+            docentes.sort((a, b) => a.localeCompare(b));
+
             docentes.forEach(docente => {
+                // Para el select de filtro
                 filtro.add(new Option(docente, docente));
+
+                // Para el datalist de sugerencias
+                const option = document.createElement('option');
+                option.value = docente;
+                listaDocentes.appendChild(option);
             });
+
         }
 
+        // 🔹 Filtrar por docente seleccionado
         document.getElementById("filtroDocente").addEventListener("change", function () {
             const docenteSeleccionado = this.value;
             const filtrados = docenteSeleccionado
